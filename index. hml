@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#101010">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>HAKER LOTOFÁCIL</title>
+
+<style>
+:root{
+  --bg:#0d0d0f;
+  --card:#18181b;
+  --card2:#202024;
+  --line:#303036;
+  --gold:#ffd700;
+  --green:#20c77a;
+  --red:#ef5350;
+  --blue:#29a9ff;
+  --orange:#ff9800;
+  --text:#f5f5f5;
+  --muted:#999;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  padding-bottom:82px;
+  min-height:100vh;
+}
+
+button,select,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(18,18,18,.97);
+  border-bottom:1px solid #333;
+  padding:14px 12px;
+  text-align:center;
+}
+
+.logo{
+  color:var(--gold);
+  font-size:1.35rem;
+  font-weight:900;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:.72rem;
+  margin-top:4px;
+}
+
+.container{
+  width:100%;
+  max-width:720px;
+  margin:auto;
+  padding:12px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  margin-bottom:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.card h2,.card h3,.card h4{
+  margin-bottom:9px;
+}
+
+.small{
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.45;
+}
+
+.status{
+  display:block;
+  padding:9px 10px;
+  background:#111;
+  border-radius:8px;
+  color:var(--blue);
+  font-size:.78rem;
+  margin-bottom:12px;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  border-radius:9px;
+  padding:12px;
+  margin-top:8px;
+  font-weight:800;
+  font-size:.88rem;
+}
+
+.btn-gold{background:var(--gold);color:#000}
+.btn-green{background:var(--green);color:#001b0f}
+.btn-blue{background:var(--blue);color:#00131f}
+.btn-red{background:var(--red);color:#fff}
+.btn-dark{background:#303036;color:#fff}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin:12px 0;
+}
+
+.ball{
+  aspect-ratio:1;
+  max-width:48px;
+  width:100%;
+  margin:auto;
+  border-radius:50%;
+  background:#303036;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:900;
+  font-size:.78rem;
+  border:1px solid #444;
+}
+
+.ball.green{background:#16864f;border-color:#20c77a}
+.ball.gold{background:#b99b00;color:#fff;border-color:#ffd700}
+.ball.red{background:#8d2929;border-color:#ef5350}
+.ball.blue{background:#145f88;border-color:#29a9ff}
+
+.nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  height:70px;
+  background:#18181b;
+  border-top:1px solid #333;
+  display:flex;
+  justify-content:space-around;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+.nav button{
+  flex:1;
+  background:none;
+  border:0;
+  color:#888;
+  font-size:.65rem;
+  font-weight:700;
+}
+
+.nav button.active{
+  color:var(--gold);
+}
+
+.tab{display:none}
+.tab.active{display:block}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.stat{
+  background:var(--card2);
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.stat b{
+  display:block;
+  color:var(--gold);
+  font-size:1.15rem;
+  margin-top:4px;
+}
+
+.progress{
+  width:100%;
+  height:10px;
+  background:#333;
+  border-radius:20px;
+  overflow:hidden;
+  margin:10px 0;
+}
+
+.progress div{
+  height:100%;
+  width:0%;
+  background:var(--gold);
+  transition:.15s;
+}
+
+.row{
+  display:flex;
+  gap:8px;
+}
+
+.row>*{
+  flex:1;
+}
+
+select,input{
+  width:100%;
+  background:#29292e;
+  color:#fff;
+  border:1px solid #444;
+  border-radius:8px;
+  padding:11px;
+}
+
+.game{
+  background:#202024;
+  border:1px solid #35353a;
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.game-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+}
+
+.badge{
+  display:inline-block;
+  padding:4px 7px;
+  border-radius:20px;
+  font-size:.65rem;
+  font-weight:bold;
+  background:#333;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.72rem;
+}
+
+th,td{
+  padding:8px 5px;
+  border-bottom:1px solid #333;
+  text-align:center;
+}
+
+th{
+  color:var(--gold);
+}
+
+.loading{
+  animation:pulse 1s infinite alternate;
+}
+
+@keyframes pulse{
+  from{opacity:.5}
+  to{opacity:1}
+}
+
+.notice{
+  background:#211f12;
+  border:1px solid #5b5100;
+  color:#e9db71;
+  border-radius:9px;
+  padding:10px;
+  font-size:.72rem;
+  line-height:1.4;
+  margin-top:10px;
+}
+
+.footer{
+  text-align:center;
+  color:#666;
+  font-size:.65rem;
+  line-height:1.4;
+  padding:10px;
+}
+
+.hidden{display:none!important}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🦅 HAKER LOTOFÁCIL</div>
+  <div class="subtitle">100 ROBÔS • ESTATÍSTICA • CONSENSO • BACKTEST</div>
+</header>
+
+<main class="container">
+
+<!-- INÍCIO -->
+<section id="tab-inicio" class="tab active">
+
+  <div class="card">
+    <span id="status" class="status">Inicializando aplicativo...</span>
+
+    <h3>Último concurso oficial</h3>
+
+    <div class="stats">
+      <div class="stat">
+        Concurso
+        <b id="lastContest">----</b>
+      </div>
+
+      <div class="stat">
+        Data
+        <b id="lastDate">--/--/----</b>
+      </div>
+
+      <div class="stat">
+        Histórico
+        <b id="historyCount">0</b>
+      </div>
+
+      <div class="stat">
+        Consenso
+        <b id="consensusCount">0</b>
+      </div>
+    </div>
+
+    <div id="latestNumbers" class="grid"></div>
+
+    <button class="btn btn-gold" onclick="loadOfficialData()">
+      🔄 ATUALIZAR RESULTADOS OFICIAIS
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Centro de análise</h3>
+
+    <div class="stats">
+      <div class="stat">
+        Robôs
+        <b>100 / 100</b>
+      </div>
+
+      <div class="stat">
+        Limite consenso
+        <b id="thresholdView">5</b>
+      </div>
+    </div>
+
+    <button class="btn btn-blue" onclick="runRobots()">
+      🤖 EXECUTAR 100 ROBÔS
+    </button>
+
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+
+    <div id="robotStatus" class="small">
+      Aguardando execução.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Configuração</h3>
+
+    <label class="small">Consenso mínimo de robôs</label>
+    <input id="threshold" type="number" min="1" max="100" value="5"
+           onchange="saveSettings()">
+
+    <button class="btn btn-dark" onclick="resetApp()">
+      ♻️ LIMPAR ANÁLISES E REFAZER
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ANÁLISE -->
+<section id="tab-analise" class="tab">
+
+  <div class="card">
+    <h3>Consenso das 25 dezenas</h3>
+
+    <p class="small">
+      Cada dezena recebe votos dos 100 robôs. Quanto maior a quantidade
+      de votos, maior o nível de consenso estatístico.
+    </p>
+
+    <div id="consensusGrid" class="grid"></div>
+  </div>
+
+  <div class="card">
+    <h3>Ranking das dezenas</h3>
+    <div id="numberRanking"></div>
+  </div>
+
+  <div class="card">
+    <h3>Consenso de combinações</h3>
+    <div id="combinationConsensus"></div>
+  </div>
+
+  <div class="card">
+    <h3>Relatório dos 100 robôs</h3>
+    <div id="robotReport"></div>
+  </div>
+
+</section>
+
+
+<!-- GERAR -->
+<section id="tab-gerar" class="tab">
+
+  <div class="card">
+    <h3>Gerador estatístico</h3>
+
+    <p class="small">
+      Os jogos são formados a partir do ranking e do consenso, com
+      diversificação para evitar que todos os jogos sejam iguais.
+    </p>
+
+    <label class="small">Quantidade</label>
+
+    <select id="gameQuantity">
+      <option value="1">1 jogo</option>
+      <option value="2">2 jogos</option>
+      <option value="3">3 jogos</option>
+      <option value="5" selected>5 jogos</option>
+      <option value="10">10 jogos</option>
+      <option value="20">20 jogos</option>
+    </select>
+
+    <button class="btn btn-green" onclick="generateGames()">
+      🎯 GERAR JOGOS
+    </button>
+  </div>
+
+  <div id="generatedGames"></div>
+
+</section>
+
+
+<!-- MEUS JOGOS -->
+<section id="tab-jogos" class="tab">
+
+  <div class="card">
+    <h3>Meus jogos</h3>
+
+    <div id="savedGames"></div>
+
+    <button class="btn btn-red" onclick="deleteAllGames()">
+      🗑 APAGAR TODOS OS JOGOS
+    </button>
+  </div>
+
+</section>
+
+
+<!-- CONFERIR -->
+<section id="tab-conferir" class="tab">
+
+  <div class="card">
+    <h3>Conferir jogos</h3>
+
+    <p class="small">
+      Os jogos salvos são comparados com o último concurso oficial
+      carregado no aplicativo.
+    </p>
+
+    <button class="btn btn-gold" onclick="checkGames()">
+      🔎 CONFERIR AGORA
+    </button>
+  </div>
+
+  <div id="checkResults"></div>
+
+</section>
+
+
+<!-- HISTÓRICO -->
+<section id="tab-historico" class="tab">
+
+  <div class="card">
+    <h3>Últimos 100 concursos</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concurso</th>
+            <th>Data</th>
+            <th>Dezenas</th>
+          </tr>
+        </thead>
+
+        <tbody id="historyTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ESTATÍSTICAS -->
+<section id="tab-estatisticas" class="tab">
+
+  <div class="card">
+    <h3>Estatísticas históricas</h3>
+
+    <div id="statistics"></div>
+  </div>
+
+  <div class="card">
+    <h3>Backtest temporal</h3>
+
+    <p class="small">
+      O backtest usa somente concursos anteriores ao concurso testado,
+      evitando utilizar o resultado futuro na análise daquele teste.
+    </p>
+
+    <button class="btn btn-blue" onclick="runBacktest()">
+      🧪 EXECUTAR BACKTEST
+    </button>
+
+    <div id="backtestResult" class="small" style="margin-top:10px"></div>
+  </div>
+
+</section>
+
+
+<div class="footer">
+  HAKER LOTOFÁCIL<br>
+  Aplicativo experimental de análise estatística.
+  Não existe garantia de acerto ou prêmio.
+</div>
+
+</main>
+
+
+<nav class="nav">
+
+  <button class="active" onclick="openTab('inicio',this)">
+    🏠<br>INÍCIO
+  </button>
+
+  <button onclick="openTab('analise',this)">
+    📊<br>ANÁLISE
+  </button>
+
+  <button onclick="openTab('gerar',this)">
+    🎯<br>GERAR
+  </button>
+
+  <button onclick="openTab('jogos',this)">
+    💾<br>JOGOS
+  </button>
+
+  <button onclick="openTab('conferir',this)">
+    🔎<br>CONFERIR
+  </button>
+
+  <button onclick="openTab('historico',this)">
+    📚<br>HISTÓRICO
+  </button>
+
+  <button onclick="openTab('estatisticas',this)">
+    📈<br>STATS
+  </button>
+
+</nav>
+
+
+<script>
+
+/* =========================================================
+   HAKER LOTOFÁCIL
+   MOTOR PRINCIPAL
+   ========================================================= */
+
+const STORAGE = {
+  history:"haker_lf_history_v3",
+  games:"haker_lf_games_v3",
+  analysis:"haker_lf_analysis_v3",
+  settings:"haker_lf_settings_v3"
+};
+
+let history = loadJSON(STORAGE.history,[]);
+let savedGames = loadJSON(STORAGE.games,[]);
+let analysis = loadJSON(STORAGE.analysis,null);
+
+let settings = loadJSON(
+  STORAGE.settings,
+  {threshold:5}
+);
+
+let latest = null;
+
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+function loadJSON(key,fallback){
+  try{
+    const x=localStorage.getItem(key);
+    return x ? JSON.parse(x) : fallback;
+  }catch(e){
+    return fallback;
+  }
+}
+
+function saveJSON(key,value){
+  localStorage.setItem(key,JSON.stringify(value));
+}
+
+function sleep(ms){
+  return new Promise(r=>setTimeout(r,ms));
+}
+
+function numbers15(){
+  const a=[];
+  for(let i=1;i<=25;i++) a.push(i);
+  return a;
+}
+
+function sorted15(a){
+  return [...new Set(a.map(Number))]
+    .filter(n=>n>=1 && n<=25)
+    .sort((a,b)=>a-b)
+    .slice(0,15);
+}
+
+function sum(a){
+  return a.reduce((x,y)=>x+y,0);
+}
+
+function average(a){
+  return a.length ? sum(a)/a.length : 0;
+}
+
+function median(a){
+  if(!a.length)return 0;
+  const b=[...a].sort((x,y)=>x-y);
+  const m=Math.floor(b.length/2);
+  return b.length%2 ? b[m] : (b[m-1]+b[m])/2;
+}
+
+function std(a){
+  if(a.length<2)return 0;
+  const av=average(a);
+  return Math.sqrt(
+    a.reduce((s,x)=>s+Math.pow(x-av,2),0)/a.length
+  );
+}
+
+function clamp(x,min,max){
+  return Math.max(min,Math.min(max,x));
+}
+
+function random(){
+  return Math.random();
+}
+
+function shuffle(a){
+  const b=[...a];
+
+  for(let i=b.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [b[i],b[j]]=[b[j],b[i]];
+  }
+
+  return b;
+}
+
+function intersection(a,b){
+  const set=new Set(b);
+  return a.filter(x=>set.has(x));
+}
+
+function formatDate(d){
+  if(!d)return "--/--/----";
+
+  if(/^\d{2}\/\d{2}\/\d{4}$/.test(d))
+    return d;
+
+  const x=new Date(d);
+
+  if(isNaN(x.getTime()))
+    return String(d);
+
+  return x.toLocaleDateString("pt-BR");
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
+
+function openTab(id,button){
+
+  document.querySelectorAll(".tab")
+    .forEach(x=>x.classList.remove("active"));
+
+  document.getElementById("tab-"+id)
+    .classList.add("active");
+
+  document.querySelectorAll(".nav button")
+    .forEach(x=>x.classList.remove("active"));
+
+  if(button)
+    button.classList.add("active");
+
+  if(id==="jogos")
+    renderSavedGames();
+
+  if(id==="historico")
+    renderHistory();
+
+  if(id==="estatisticas")
+    renderStatistics();
+}
+
+
+/* =========================================================
+   CONFIGURAÇÃO
+   ========================================================= */
+
+document.getElementById("threshold").value=settings.threshold;
+
+function saveSettings(){
+
+  let n=parseInt(
+    document.getElementById("threshold").value
+  );
+
+  if(!n || n<1)n=5;
+  if(n>100)n=100;
+
+  settings.threshold=n;
+
+  document.getElementById("threshold").value=n;
+  document.getElementById("thresholdView").innerText=n;
+
+  saveJSON(STORAGE.settings,settings);
+
+  if(analysis)
+    renderAnalysis();
+}
+
+
+/* =========================================================
+   LEITURA OFICIAL
+   ========================================================= */
+
+/*
+  O aplicativo tenta primeiro uma função de servidor
+  no próprio domínio:
+
+       /api/lotofacil
+
+  Isso é o recomendado para evitar CORS.
+
+  Depois tenta diretamente o serviço oficial da CAIXA.
+
+  Não existe geração de resultado falso.
+*/
+
+const OFFICIAL_ENDPOINT =
+  "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil";
+
+async function fetchContest(number=null){
+
+  const urls=[];
+
+  if(number){
+    urls.push("/api/lotofacil/"+number);
+    urls.push(
+      "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/"+number
+    );
+  }else{
+    urls.push("/api/lotofacil");
+    urls.push(OFFICIAL_ENDPOINT);
+  }
+
+  for(const url of urls){
+
+    try{
+
+      const response=await fetch(url,{
+        method:"GET",
+        cache:"no-store",
+        headers:{
+          "Accept":"application/json"
+        }
+      });
+
+      if(!response.ok)
+        continue;
+
+      const data=await response.json();
+
+      const normalized=normalizeContest(data);
+
+      if(normalized)
+        return normalized;
+
+    }catch(e){
+      /* tenta próxima fonte */
+    }
+  }
+
+  return null;
+}
+
+
+function normalizeContest(data){
+
+  if(!data || typeof data!=="object")
+    return null;
+
+  let number =
+    data.numero ??
+    data.concurso ??
+    data.number ??
+    data.numeroConcurso;
+
+  let date =
+    data.dataApuracao ??
+    data.data ??
+    data.date ??
+    data.dataSorteio;
+
+  let raw =
+    data.listaDezenas ??
+    data.dezenas ??
+    data.dezenasSorteadas ??
+    data.numbers;
+
+  if(Array.isArray(raw)){
+
+    raw=raw
+      .map(x=>{
+        if(typeof x==="object")
+          return x.numero ?? x.valor ?? x.dezena;
+
+        return x;
+      })
+      .map(Number)
+      .filter(n=>n>=1 && n<=25);
+
+  }else{
+    raw=[];
+  }
+
+  raw=[...new Set(raw)].sort((a,b)=>a-b);
+
+  if(raw.length!==15)
+    return null;
+
+  if(number===undefined || number===null)
+    return null;
+
+  return {
+    concurso:Number(number),
+    data:formatDate(date),
+    dezenas:raw
+  };
+}
+
+
+/* =========================================================
+   CARREGAR 100 CONCURSOS
+   ========================================================= */
+
+async function loadOfficialData(){
+
+  const status=document.getElementById("status");
+
+  status.innerText=
+    "🔄 Consultando resultados oficiais da CAIXA...";
+
+  status.classList.add("loading");
+
+  try{
+
+    let first=await fetchContest();
+
+    if(!first)
+      throw new Error("Fonte oficial indisponível");
+
+    latest=first;
+
+    document.getElementById("lastContest").innerText=
+      first.concurso;
+
+    document.getElementById("lastDate").innerText=
+      first.data;
+
+    renderLatest(first);
+
+    /*
+      Começa pelo último concurso encontrado e busca
+      os 99 anteriores.
+    */
+
+    const results=[first];
+
+    const start=first.concurso;
+
+    for(let i=1;i<100;i++){
+
+      const number=start-i;
+
+      if(number<1)break;
+
+      status.innerText=
+        `🔄 Baixando concurso ${i+1}/100...`;
+
+      const item=await fetchContest(number);
+
+      if(item)
+        results.push(item);
+
+      await sleep(35);
+    }
+
+    /*
+      Remove duplicados e mantém apenas os 100 mais recentes.
+    */
+
+    const map=new Map();
+
+    for(const r of results)
+      map.set(r.concurso,r);
+
+    history=[...map.values()]
+      .sort((a,b)=>b.concurso-a.concurso)
+      .slice(0,100);
+
+    saveJSON(STORAGE.history,history);
+
+    document.getElementById("historyCount").innerText=
+      history.length;
+
+    status.classList.remove("loading");
+
+    if(history.length>=1){
+
+      status.innerText=
+        `✓ ${history.length} concursos oficiais carregados.`;
+
+      calculateStatistics();
+
+    }else{
+
+      status.innerText=
+        "⚠️ Não foi possível carregar o histórico.";
+
+    }
+
+    renderHistory();
+
+    renderStatistics();
+
+    if(analysis)
+      renderAnalysis();
+
+  }catch(e){
+
+    status.classList.remove("loading");
+
+    status.innerText=
+      "⚠️ Fonte oficial indisponível. Nenhum resultado foi inventado.";
+
+    /*
+      Se já existir histórico salvo, ele continua funcionando.
+    */
+
+    if(history.length){
+
+      const first=history[0];
+
+      latest=first;
+
+      renderLatest(first);
+
+      document.getElementById("historyCount").innerText=
+        history.length;
+
+      status.innerText=
+        `⚠️ Sem atualização. Usando ${history.length} concursos salvos.`;
+
+    }
+  }
+}
+
+
+function renderLatest(data){
+
+  document.getElementById("lastContest").innerText=
+    data.concurso;
+
+  document.getElementById("lastDate").innerText=
+    data.data;
+
+  const grid=document.getElementById("latestNumbers");
+
+  grid.innerHTML="";
+
+  data.dezenas.forEach(n=>{
+
+    const d=document.createElement("div");
+
+    d.className="ball green";
+
+    d.innerText=String(n).padStart(2,"0");
+
+    grid.appendChild(d);
+
+  });
+}
+
+
+/* =========================================================
+   MÉTRICAS HISTÓRICAS
+   ========================================================= */
+
+function frequencyMap(data){
+
+  const f=Array(26).fill(0);
+
+  data.forEach(c=>{
+    c.dezenas.forEach(n=>f[n]++);
+  });
+
+  return f;
+}
+
+
+function lastSeenMap(data){
+
+  const result={};
+
+  for(let n=1;n<=25;n++)
+    result[n]=999;
+
+  data.forEach((c,index)=>{
+
+    c.dezenas.forEach(n=>{
+
+      if(result[n]===999)
+        result[n]=index;
+
+    });
+
+  });
+
+  return result;
+}
+
+
+function delayMap(data){
+
+  const result={};
+
+  for(let n=1;n<=25;n++){
+
+    let delay=0;
+
+    for(const c of data){
+
+      if(c.dezenas.includes(n))
+        break;
+
+      delay++;
+    }
+
+    result[n]=delay;
+  }
+
+  return result;
+}
+
+
+function pairFrequency(data){
+
+  const map={};
+
+  data.forEach(c=>{
+
+    const d=c.dezenas;
+
+    for(let i=0;i<d.length;i++){
+
+      for(let j=i+1;j<d.length;j++){
+
+        const key=d[i]+"-"+d[j];
+
+        map[key]=(map[key]||0)+1;
+      }
+    }
+
+  });
+
+  return map;
+}
+
+
+function tripleFrequency(data){
+
+  const map={};
+
+  /*
+    Para manter o aplicativo leve no celular,
+    calculamos apenas trios dentro das combinações
+    dos concursos.
+  */
+
+  data.forEach(c=>{
+
+    const d=c.dezenas;
+
+    for(let i=0;i<d.length;i++){
+
+      for(let j=i+1;j<d.length;j++){
+
+        for(let k=j+1;k<d.length;k++){
+
+          const key=
+            d[i]+"-"+d[j]+"-"+d[k];
+
+          map[key]=(map[key]||0)+1;
+        }
+      }
+    }
+
+  });
+
+  return map;
+}
+
+
+function numberFeatures(data){
+
+  const freq=frequencyMap(data);
+  const delay=delayMap(data);
+  const seen=lastSeenMap(data);
+
+  const recent=data.slice(0,10);
+  const medium=data.slice(0,30);
+  const long=data.slice(0,100);
+
+  const f10=frequencyMap(recent);
+  const f30=frequencyMap(medium);
+  const f100=frequencyMap(long);
+
+  const features={};
+
+  for(let n=1;n<=25;n++){
+
+    features[n]={
+      n,
+      f10:f10[n],
+      f30:f30[n],
+      f100:f100[n],
+      delay:delay[n],
+      recency:seen[n]
+    };
+
+  }
+
+  return features;
+}
+
+
+/* =========================================================
+   100 ROBÔS
+   ========================================================= */
+
+function robotScore(robot,data){
+
+  const f=numberFeatures(data);
+
+  const freq100=frequencyMap(data);
+
+  const pair=pairFrequency(data);
+
+  const recent=data.slice(0,10);
+
+  const recentFreq=frequencyMap(recent);
+
+  const scores={};
+
+  for(let n=1;n<=25;n++){
+
+    const x=f[n];
+
+    let score=0;
+
+    /*
+      1-10 ANÁLISE DE LINGUAGEM NATURAL E EMBEDDINGS (PNL NUMÉRICO)
+    */
+
+    if(robot<=10){
+
+      const variant=robot-1;
+
+      // Matriz de Transição e Contexto Numérico (PNL Bigram)
+      let bigramWeight=0;
+      data.forEach(c=>{
+        const d=c.dezenas;
+        if(d.includes(n)){
+          d.forEach(neighbor=>{
+            if(Math.abs(neighbor-n)<=2 && neighbor!==n) bigramWeight+=0.12;
+          });
+        }
+      });
+
+      // Função de Dispersão e Entropia da Dezena
+      const tfIDF_Numeric = (x.f10 / 10.0) * Math.log(100.0 / (x.f100 + 1));
+      const vectorSimilarity = Math.cos((n * Math.PI) / 25.0) * (variant * 0.05);
+
+      score =
+        x.f100 * (0.8 + variant * 0.01) +
+        bigramWeight * (0.5 + variant * 0.02) +
+        tfIDF_Numeric * (1.5 + variant * 0.05) +
+        vectorSimilarity;
+
+    }
+
+    /*
+      11-20 RECÊNCIA
+    */
+
+    else if(robot<=20){
+
+      const variant=robot-11;
+
+      score =
+        x.f10*(2+variant*.08) +
+        x.f30*(.7+variant*.03) -
+        x.recency*(.15+variant*.01);
+
+    }
+
+    /*
+      21-30 ATRASOS
+    */
+
+    else if(robot<=30){
+
+      const variant=robot-21;
+
+      score =
+        x.delay*(1+variant*.04) +
+        (x.delay>=3 ? 4 : 0) +
+        x.f100*.08;
+
+    }
+
+    /*
+      31-40 COOCORRÊNCIA
+    */
+
+    else if(robot<=40){
+
+      const variant=robot-31;
+
+      let pairScore=0;
+
+      for(let k=1;k<=25;k++){
+
+        if(k===n)continue;
+
+        const a=Math.min(n,k);
+        const b=Math.max(n,k);
+
+        pairScore+=pair[a+"-"+b]||0;
+      }
+
+      score =
+        pairScore*(.015+variant*.002) +
+        x.f30*.25;
+
+    }
+
+    /*
+      41-50 PARIDADE E DISTRIBUIÇÃO
+    */
+
+    else if(robot<=50){
+
+      const variant=robot-41;
+
+      const odd=(n%2===1)?1:0;
+
+      const idealParity =
+        variant%2===0 ? odd : 1-odd;
+
+      score =
+        (idealParity?1.5:1) +
+        x.f30*.18 +
+        (n<=8?1.2:0) +
+        (n>=18?1.1:0);
+
+    }
+
+    /*
+      51-60 SOMA E ESPAÇAMENTO
+    */
+
+    else if(robot<=60){
+
+      const variant=robot-51;
+
+      const center=13;
+
+      score =
+        8-Math.abs(n-center)*.25 +
+        x.f100*.18 +
+        (variant%3)*.15;
+
+    }
+
+    /*
+      61-70 SEQUÊNCIAS E REPETIÇÃO
+    */
+
+    else if(robot<=70){
+
+      const variant=robot-61;
+
+      let repetition=0;
+
+      for(let i=0;i<Math.min(5,data.length);i++){
+
+        if(data[i].dezenas.includes(n))
+          repetition++;
+
+      }
+
+      score =
+        repetition*(1+variant*.04) +
+        x.f30*.25;
+
+    }
+
+    /*
+      71-80 MONTE CARLO SIMPLIFICADO
+    */
+
+    else if(robot<=80){
+
+      const variant=robot-71;
+
+      let monte=0;
+
+      for(let k=0;k<80;k++){
+
+        monte +=
+          Math.random() <
+          clamp(x.f100/(data.length*15),.01,.8)
+          ? 1 : 0;
+
+      }
+
+      score =
+        monte*(1+variant*.015) +
+        x.f30*.15;
+
+    }
+
+    /*
+      81-90 OTIMIZAÇÃO
+    */
+
+    else if(robot<=90){
+
+      const variant=robot-81;
+
+      score =
+        x.f10*1.3 +
+        x.f30*.6 +
+        x.f100*.25 +
+        (25-x.delay)*.08 +
+        (n<=13?variant*.02:0);
+
+    }
+
+    /*
+      91-99 BACKTEST / ESTABILIDADE
+    */
+
+    else if(robot<=99){
+
+      const variant=robot-91;
+
+      const windows=[
+        data.slice(0,10),
+        data.slice(0,20),
+        data.slice(0,30),
+        data.slice(0,50)
+      ];
+
+      let stability=0;
+
+      windows.forEach(w=>{
+        const fm=frequencyMap(w);
+        stability += fm[n]||0;
+      });
+
+      score =
+        stability*(.15+variant*.008) +
+        x.f100*.15;
+
+    }
+
+    /*
+      100 MASTER ENSEMBLE
+    */
+
+    else{
+
+      score =
+        x.f10*1.5 +
+        x.f30*.8 +
+        x.f100*.5 +
+        x.delay*.2 +
+        recentFreq[n]*.4;
+
+    }
+
+    scores[n]=score;
+
+  }
+
+  return scores;
+}
+
+
+function selectRobotNumbers(scores){
+
+  return Object.entries(scores)
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0,15)
+    .map(x=>Number(x[0]))
+    .sort((a,b)=>a-b);
+}
+
+
+async function runRobots(){
+
+  if(history.length<5){
+
+    alert(
+      "Carregue primeiro os resultados oficiais da CAIXA."
+    );
+
+    return;
+  }
+
+  const progress=document.getElementById("progressBar");
+  const status=document.getElementById("robotStatus");
+
+  const votes=Array(26).fill(0);
+  const robots=[];
+  const combinations={};
+
+  for(let robot=1;robot<=100;robot++){
+
+    status.innerText=
+      `Executando Robô ${robot}/100...`;
+
+    progress.style.width=
+      robot+"%";
+
+    const scores=robotScore(robot,history);
+
+    const selected=selectRobotNumbers(scores);
+
+    selected.forEach(n=>{
+      votes[n]++;
+    });
+
+    const key=selected.join(",");
+
+    combinations[key]=
+      (combinations[key]||0)+1;
+
+    robots.push({
+      id:robot,
+      selected,
+      score:average(selected.map(n=>scores[n]))
+    });
+
+    /*
+      Dá tempo para o celular atualizar a interface.
+    */
+
+    if(robot%4===0)
+      await sleep(10);
+  }
+
+  analysis={
+    timestamp:new Date().toISOString(),
+    threshold:settings.threshold,
+    votes,
+    robots,
+    combinations
+  };
+
+  saveJSON(STORAGE.analysis,analysis);
+
+  progress.style.width="100%";
+
+  status.innerText=
+    "✓ 100 robôs concluíram a análise.";
+
+  renderAnalysis();
+
+  document.getElementById("consensusCount").innerText=
+    countConsensus()+" dezenas";
+}
+
+
+function countConsensus(){
+
+  if(!analysis)return 0;
+
+  const t=settings.threshold;
+
+  return analysis.votes
+    .slice(1)
+    .filter(v=>v>=t)
+    .length;
+}
+
+
+/* =========================================================
+   RENDER ANÁLISE
+   ========================================================= */
+
+function renderAnalysis(){
+
+  if(!analysis)return;
+
+  document.getElementById("thresholdView").innerText=
+    settings.threshold;
+
+  const grid=document.getElementById("consensusGrid");
+
+  grid.innerHTML="";
+
+  let consensus=0;
+
+  for(let n=1;n<=25;n++){
+
+    const votes=analysis.votes[n];
+
+    const ball=document.createElement("div");
+
+    let color="red";
+
+    if(votes>=settings.threshold){
+
+      color="green";
+      consensus++;
+
+    }else if(votes>=Math.max(2,settings.threshold/2)){
+
+      color="gold";
+
+    }
+
+    ball.className="ball "+color;
+
+    ball.innerText=String(n).padStart(2,"0");
+
+    ball.title=
+      `${votes} robôs votaram na dezena ${n}`;
+
+    grid.appendChild(ball);
+  }
+
+  document.getElementById("consensusCount").innerText=
+    consensus+" dezenas";
+
+  renderRanking();
+  renderCombinationConsensus();
+  renderRobotReport();
+}
+
+
+function renderRanking(){
+
+  const box=document.getElementById("numberRanking");
+
+  if(!analysis){
+
+    box.innerHTML=
+      "<p class='small'>Execute os 100 robôs.</p>";
+
+    return;
+  }
+
+  const list=[];
+
+  for(let n=1;n<=25;n++){
+
+    list.push({
+      n,
+      votes:analysis.votes[n]
+    });
+
+  }
+
+  list.sort((a,b)=>b.votes-a.votes);
+
+  box.innerHTML=list.map((x,i)=>`
+
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      padding:8px 0;
+      border-bottom:1px solid #333;
+    ">
+      <span>
+        <b>${i+1}º</b>
+        &nbsp; Dezena ${String(x.n).padStart(2,"0")}
+      </span>
+
+      <span style="color:var(--gold)">
+        ${x.votes}/100 votos
+      </span>
+    </div>
+
+  `).join("");
+}
+
+
+function renderCombinationConsensus(){
+
+  const box=document.getElementById("combinationConsensus");
+
+  if(!analysis){
+
+    box.innerHTML=
+      "<p class='small'>Execute os robôs.</p>";
+
+    return;
+  }
+
+  const list=Object.entries(
+    analysis.combinations
+  )
+  .map(([key,count])=>({
+    numbers:key.split(",").map(Number),
+    count
+  }))
+  .sort((a,b)=>b.count-a.count)
+  .slice(0,10);
+
+  if(!list.length){
+
+    box.innerHTML=
+      "<p class='small'>Nenhuma combinação encontrada.</p>";
+
+    return;
+  }
+
+  box.innerHTML=list.map((x,i)=>`
+
+    <div class="game">
+
+      <div class="game-title">
+        <b>Combinação ${i+1}</b>
+        <span class="badge">
+          ${x.count} robô(s)
+        </span>
+      </div>
+
+      <div class="grid">
+        ${x.numbers.map(n=>
+          `<div class="ball blue">
+            ${String(n).padStart(2,"0")}
+          </div>`
+        ).join("")}
+      </div>
+
+    </div>
+
+  `).join("");
+}
+
+
+function renderRobotReport(){
+
+  const box=document.getElementById("robotReport");
+
+  if(!analysis){
+
+    box.innerHTML=
+      "<p class='small'>Execute os 100 robôs.</p>";
+
+    return;
+  }
+
+  const groups=[
+    ["1–10","Análise de Linguagem / Embeddings"],
+    ["11–20","Recência"],
+    ["21–30","Atrasos"],
+    ["31–40","Coocorrência"],
+    ["41–50","Paridade / distribuição"],
+    ["51–60","Soma / espaçamento"],
+    ["61–70","Sequências / repetição"],
+    ["71–80","Monte Carlo"],
+    ["81–90","Otimização"],
+    ["91–99","Backtest / estabilidade"],
+    ["100","Master Ensemble"]
+  ];
+
+  box.innerHTML=groups.map(g=>`
+
+    <div style="
+      padding:8px 0;
+      border-bottom:1px solid #333;
+      display:flex;
+      justify-content:space-between;
+    ">
+      <b>Robôs ${g[0]}</b>
+      <span class="small">${g[1]}</span>
+    </div>
+
+  `).join("");
+}
+
+
+/* =========================================================
+   GERAÇÃO DE JOGOS
+   ========================================================= */
+
+function weightedNumberPool(){
+
+  if(!analysis){
+
+    return numbers15();
+  }
+
+  const pool=[];
+
+  for(let n=1;n<=25;n++){
+
+    const votes=analysis.votes[n];
+
+    /*
+      O consenso aumenta a chance de seleção,
+      mas não obriga todos os jogos a serem iguais.
+    */
+
+    const weight=
+      1+
+      votes*2.2;
+
+    for(let i=0;i<Math.ceil(weight);i++)
+      pool.push(n);
+
+  }
+
+  return pool;
+}
+
+
+function createGame(){
+
+  const pool=weightedNumberPool();
+
+  let best=null;
+
+  for(let attempt=0;attempt<80;attempt++){
+
+    const selected=[];
+
+    const shuffled=shuffle(pool);
+
+    for(const n of shuffled){
+
+      if(!selected.includes(n))
+        selected.push(n);
+
+      if(selected.length===15)
+        break;
+
+    }
+
+    if(selected.length!==15)
+      continue;
+
+    selected.sort((a,b)=>a-b);
+
+    const s=sum(selected);
+
+    /*
+      Preferência por faixa de soma equilibrada.
+    */
+
+    const sumPenalty=
+      Math.abs(s-195);
+
+    if(!best ||
+       sumPenalty <
+       Math.abs(sum(best)-195)){
+
+      best=selected;
+    }
+
+  }
+
+  if(!best){
+
+    best=shuffle(numbers15()).slice(0,15)
+      .sort((a,b)=>a-b);
+  }
+
+  return best;
+}
+
+
+function similarity(a,b){
+
+  return intersection(a,b).length;
+}
+
+
+function generateGames(){
+
+  const qtd=parseInt(
+    document.getElementById("gameQuantity").value
+  );
+
+  const box=document.getElementById("generatedGames");
+
+  const games=[];
+
+  let attempts=0;
+
+  while(games.length<qtd && attempts<qtd*200){
+
+    attempts++;
+
+    const game=createGame();
+
+    /*
+      Diversificação:
+      dois jogos normalmente não devem compartilhar
+      todas as mesmas dezenas.
+    */
+
+    let valid=true;
+
+    for(const old of games){
+
+      if(similarity(game,old)>13){
+
+        valid=false;
+        break;
+      }
+
+    }
+
+    if(valid)
+      games.push(game);
+
+  }
+
+  box.innerHTML="";
+
+  games.forEach((game,index)=>{
+
+    box.innerHTML+=`
+
+      <div class="game">
+
+        <div class="game-title">
+          <b>JOGO ${index+1}</b>
+          <span class="badge">15 dezenas</span>
+        </div>
+
+        <div class="grid">
+
+          ${game.map(n=>`
+            <div class="ball">
+              ${String(n).padStart(2,"0")}
+            </div>
+          `).join("")}
+
+        </div>
+
+        <button
+          class="btn btn-green"
+          onclick='saveGame(${JSON.stringify(game)})'>
+          💾 SALVAR JOGO
+        </button>
+
+        <button
+          class="btn btn-dark"
+          onclick='copyGame(${JSON.stringify(game)})'>
+          📋 COPIAR JOGO
+        </button>
+
+      </div>
+
+    `;
+  });
+}
+
+
+function saveGame(numbers){
+
+  const exists=savedGames.some(
+    g=>g.numbers.join(",")===numbers.join(",")
+  );
+
+  if(exists){
+
+    alert("Esse jogo já está salvo.");
+
+    return;
+  }
+
+  savedGames.push({
+    id:Date.now()+Math.random(),
+    date:new Date().toISOString(),
+    numbers
+  });
+
+  saveJSON(STORAGE.games,savedGames);
+
+  alert("✓ Jogo salvo!");
+
+  renderSavedGames();
+}
+
+
+async function copyGame(numbers){
+
+  const text=numbers
+    .map(n=>String(n).padStart(2,"0"))
+    .join(" - ");
+
+  try{
+
+    await navigator.clipboard.writeText(text);
+
+    alert("✓ Jogo copiado!");
+
+  }catch(e){
+
+    alert(text);
+
+  }
+}
+
+
+/* =========================================================
+   MEUS JOGOS
+   ========================================================= */
+
+function renderSavedGames(){
+
+  const box=document.getElementById("savedGames");
+
+  if(!savedGames.length){
+
+    box.innerHTML=
+      "<p class='small'>Nenhum jogo salvo.</p>";
+
+    return;
+  }
+
+  box.innerHTML=savedGames.map((g,i)=>`
+
+    <div class="game">
+
+      <div class="game-title">
+        <b>JOGO #${i+1}</b>
+        <span class="badge">
+          ${formatDate(g.date)}
+        </span>
+      </div>
+
+      <div class="grid">
+
+        ${g.numbers.map(n=>`
+          <div class="ball">
+            ${String(n).padStart(2,"0")}
+          </div>
+        `).join("")}
+
+      </div>
+
+      <button
+        class="btn btn-dark"
+        onclick='copyGame(${JSON.stringify(g.numbers)})'>
+        📋 COPIAR
+      </button>
+
+      <button
+        class="btn btn-red"
+        onclick="deleteGame(${i})">
+        🗑 EXCLUIR
+      </button>
+
+    </div>
+
+  `).join("");
+}
+
+
+function deleteGame(index){
+
+  if(!confirm("Excluir este jogo?"))
+    return;
+
+  savedGames.splice(index,1);
+
+  saveJSON(STORAGE.games,savedGames);
+
+  renderSavedGames();
+}
+
+
+function deleteAllGames(){
+
+  if(!savedGames.length)
+    return;
+
+  if(!confirm("Apagar todos os jogos salvos?"))
+    return;
+
+  savedGames=[];
+
+  saveJSON(STORAGE.games,savedGames);
+
+  renderSavedGames();
+}
+
+
+/* =========================================================
+   CONFERÊNCIA
+   ========================================================= */
+
+function checkGames(){
+
+  const box=document.getElementById("checkResults");
+
+  if(!latest){
+
+    alert(
+      "Carregue primeiro o último resultado oficial."
+    );
+
+    return;
+  }
+
+  if(!savedGames.length){
+
+    box.innerHTML=`
+      <div class="card">
+        <p class="small">
+          Você ainda não possui jogos salvos.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML=savedGames.map((g,i)=>{
+
+    const hits=intersection(
+      g.numbers,
+      latest.dezenas
+    );
+
+    return `
+
+      <div class="card">
+
+        <div class="game-title">
+          <b>JOGO #${i+1}</b>
+
+          <span style="
+            color:${hits.length>=11
+              ?"var(--green)"
+              :"var(--gold)"
+            };
+            font-weight:900;
+          ">
+            ${hits.length} ACERTOS
+          </span>
+        </div>
+
+        <p class="small">
+          Concurso ${latest.concurso}
+        </p>
+
+        <div class="grid">
+
+          ${g.numbers.map(n=>{
+
+            const hit=latest.dezenas.includes(n);
+
+            return `
+              <div class="ball ${hit?"green":""}">
+                ${String(n).padStart(2,"0")}
+              </div>
+            `;
+
+          }).join("")}
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join("");
+}
+
+
+/* =========================================================
+   HISTÓRICO
+   ========================================================= */
+
+function renderHistory(){
+
+  const table=document.getElementById("historyTable");
+
+  if(!history.length){
+
+    table.innerHTML=`
+      <tr>
+        <td colspan="3">
+          Nenhum concurso carregado.
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+  table.innerHTML=history.map(c=>`
+
+    <tr>
+
+      <td>${c.concurso}</td>
+
+      <td>${c.data}</td>
+
+      <td>
+        ${c.dezenas.map(n=>
+          String(n).padStart(2,"0")
+        ).join(" ")}
+
+      </td>
+
+    </tr>
+
+  `).join("");
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS
+   ========================================================= */
+
+function calculateStatistics(){
+
+  if(!history.length)
+    return null;
+
+  const freq=frequencyMap(history);
+
+  const ranking=numbers15()
+    .map(n=>({
+      n,
+      f:freq[n]
+    }))
+    .sort((a,b)=>b.f-a.f);
+
+  return {
+    freq,
+    ranking
+  };
+}
+
+
+function renderStatistics(){
+
+  const box=document.getElementById("statistics");
+
+  if(!history.length){
+
+    box.innerHTML=
+      "<p class='small'>Carregue os concursos oficiais.</p>";
+
+    return;
+  }
+
+  const stats=calculateStatistics();
+
+  const total=history.length;
+
+  const avgSum=average(
+    history.map(c=>sum(c.dezenas))
+  );
+
+  const sums=history.map(c=>sum(c.dezenas));
+
+  const avgOdd=average(
+    history.map(c=>
+      c.dezenas.filter(n=>n%2).length
+    )
+  );
+
+  const top=stats.ranking.slice(0,10);
+
+  box.innerHTML=`
+
+    <div class="stats">
+
+      <div class="stat">
+        Concursos
+        <b>${total}</b>
+      </div>
+
+      <div class="stat">
+        Soma média
+        <b>${avgSum.toFixed(1)}</b>
+      </div>
+
+      <div class="stat">
+        Mediana da soma
+        <b>${median(sums)}</b>
+      </div>
+
+      <div class="stat">
+        Ímpares médios
+        <b>${avgOdd.toFixed(1)}</b>
+      </div>
+
+    </div>
+
+    <h4 style="margin-top:15px">
+      10 dezenas mais frequentes
+    </h4>
+
+    ${top.map((x,i)=>`
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        padding:8px 0;
+        border-bottom:1px solid #333;
+      ">
+
+        <span>${i+1}º —
+          ${String(x.n).padStart(2,"0")}
+        </span>
+
+        <b style="color:var(--gold)">
+          ${x.f} vezes
+        </b>
+
+      </div>
+
+    `).join("")}
+
+  `;
+}
+
+
+/* =========================================================
+   BACKTEST TEMPORAL
+   ========================================================= */
+
+async function runBacktest(){
+
+  const box=document.getElementById("backtestResult");
+
+  if(history.length<15){
+
+    box.innerText=
+      "É necessário ter pelo menos 15 concursos.";
+
+    return;
+  }
+
+  box.innerText=
+    "Executando backtest sem utilizar o futuro...";
+
+  await sleep(50);
+
+  /*
+    Testa até 20 concursos.
+
+    Para cada concurso-alvo:
+    - usa apenas os concursos posteriores na lista
+      (mais antigos cronologicamente)
+    - cria ranking
+    - seleciona 15 dezenas
+    - compara com o concurso-alvo
+  */
+
+  const ordered=[...history]
+    .sort((a,b)=>a.concurso-b.concurso);
+
+  const start=Math.max(10,ordered.length-20);
+
+  const hits=[];
+
+  for(let i=start;i<ordered.length;i++){
+
+    const target=ordered[i];
+
+    const training=ordered.slice(0,i);
+
+    if(training.length<10)
+      continue;
+
+    const f=frequencyMap(training);
+
+    const selected=numbers15()
+      .sort((a,b)=>f[b]-f[a])
+      .slice(0,15);
+
+    const h=intersection(
+      selected,
+      target.dezenas
+    ).length;
+
+    hits.push(h);
+
+    await sleep(5);
+  }
+
+  if(!hits.length){
+
+    box.innerText=
+      "Não foi possível executar o backtest.";
+
+    return;
+  }
+
+  box.innerHTML=`
+
+    <div class="stats">
+
+      <div class="stat">
+        Testes
+        <b>${hits.length}</b>
+      </div>
+
+      <div class="stat">
+        Média de acertos
+        <b>${average(hits).toFixed(2)}</b>
+      </div>
+
+      <div class="stat">
+        Melhor resultado
+        <b>${Math.max(...hits)}</b>
+      </div>
+
+      <div class="stat">
+        Mediana
+        <b>${median(hits)}</b>
+      </div>
+
+    </div>
+
+    <p style="margin-top:10px">
+      Resultados:
+      ${hits.join(" • ")}
+    </p>
+
+  `;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+function resetApp(){
+
+  if(!confirm(
+    "Isso apagará somente a análise estatística salva deste aplicativo. Seus jogos salvos serão mantidos. Continuar?"
+  ))
+    return;
+
+  analysis=null;
+
+  localStorage.removeItem(STORAGE.analysis);
+
+  document.getElementById("progressBar").style.width="0%";
+
+  document.getElementById("robotStatus").innerText=
+    "Aguardando execução.";
+
+  renderAnalysis();
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+   ========================================================= */
+
+function initialize(){
+
+  document.getElementById("threshold").value=
+    settings.threshold;
+
+  document.getElementById("thresholdView").innerText=
+    settings.threshold;
+
+  document.getElementById("historyCount").innerText=
+    history.length;
+
+  renderSavedGames();
+  renderHistory();
+  renderStatistics();
+
+  if(history.length){
+
+    latest=history[0];
+
+    renderLatest(latest);
+
+    document.getElementById("status").innerText=
+      `✓ ${history.length} concursos salvos disponíveis.`;
+
+  }
+
+  if(analysis)
+    renderAnalysis();
+
+  /*
+    Atualiza automaticamente na abertura.
+    Se não houver internet, mantém os dados locais.
+  */
+
+  loadOfficialData();
+}
+
+initialize();
+
+</script>
+
+</body>
+</html>
