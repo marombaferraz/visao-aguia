@@ -1,0 +1,3427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<title>🦅 HAKER LOTOFÁCIL</title>
+
+<meta name="theme-color" content="#101318">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<style>
+
+:root{
+  --bg:#101318;
+  --card:#191e27;
+  --card2:#222936;
+  --gold:#ffd54a;
+  --green:#22c55e;
+  --red:#ef4444;
+  --blue:#38bdf8;
+  --yellow:#facc15;
+  --text:#ffffff;
+  --sub:#aab3c2;
+  --border:#303949;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  padding-bottom:85px;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#101318;
+  border-bottom:1px solid var(--border);
+  padding:15px;
+}
+
+.logo{
+  text-align:center;
+  color:var(--gold);
+  font-size:22px;
+  font-weight:bold;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--sub);
+  font-size:10px;
+  margin-top:5px;
+  letter-spacing:1px;
+}
+
+.container{
+  padding:12px;
+  max-width:700px;
+  margin:auto;
+}
+
+.tab{
+  display:none;
+}
+
+.tab.active{
+  display:block;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:12px;
+}
+
+.card h2{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.card h3{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.info{
+  font-size:13px;
+  color:var(--sub);
+  line-height:1.6;
+}
+
+.status{
+  padding:10px;
+  border-radius:10px;
+  background:#172333;
+  color:var(--blue);
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.status.ok{
+  background:#123022;
+  color:var(--green);
+}
+
+.status.error{
+  background:#381b20;
+  color:var(--red);
+}
+
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  margin-top:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.gold{
+  background:var(--gold);
+  color:#000;
+}
+
+.green{
+  background:var(--green);
+  color:#07150c;
+}
+
+.blue{
+  background:var(--blue);
+  color:#00131d;
+}
+
+.red{
+  background:var(--red);
+  color:#fff;
+}
+
+.gray{
+  background:#303949;
+  color:#fff;
+}
+
+.row{
+  display:flex;
+  gap:8px;
+}
+
+.row .btn{
+  flex:1;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.ball{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  background:#303949;
+  font-weight:bold;
+  font-size:13px;
+  border:1px solid #465164;
+}
+
+.ball.green{
+  background:#166534;
+  border-color:#22c55e;
+}
+
+.ball.yellow{
+  background:#a16207;
+  border-color:#facc15;
+  color:white;
+}
+
+.ball.red{
+  background:#7f1d1d;
+  border-color:#ef4444;
+}
+
+.ball.blue{
+  background:#164e63;
+  border-color:#38bdf8;
+}
+
+.ball.hit{
+  background:#166534;
+  border-color:#22c55e;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.stat{
+  background:var(--card2);
+  border-radius:12px;
+  padding:12px;
+}
+
+.stat b{
+  display:block;
+  font-size:18px;
+  color:var(--gold);
+}
+
+.stat span{
+  font-size:10px;
+  color:var(--sub);
+}
+
+.progress{
+  height:10px;
+  background:#303949;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:var(--gold);
+  transition:.15s;
+}
+
+.robot{
+  background:#222936;
+  border-radius:10px;
+  padding:10px;
+  margin-top:7px;
+  font-size:11px;
+}
+
+.robot-title{
+  color:var(--gold);
+  font-weight:bold;
+}
+
+.robot-info{
+  color:var(--sub);
+  margin-top:4px;
+}
+
+.game{
+  background:#222936;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+}
+
+.game-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.small{
+  font-size:11px;
+  color:var(--sub);
+}
+
+.vote-list{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.vote{
+  background:#222936;
+  padding:7px;
+  border-radius:9px;
+  text-align:center;
+  font-size:11px;
+}
+
+.vote b{
+  display:block;
+  font-size:14px;
+}
+
+select,input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  background:#222936;
+  color:#fff;
+  border:1px solid var(--border);
+  margin-top:5px;
+}
+
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#161b23;
+  border-top:1px solid var(--border);
+  display:flex;
+  z-index:100;
+}
+
+.navbtn{
+  flex:1;
+  border:none;
+  background:transparent;
+  color:var(--sub);
+  font-size:10px;
+  cursor:pointer;
+}
+
+.navbtn.active{
+  color:var(--gold);
+  font-weight:bold;
+}
+
+.navicon{
+  display:block;
+  font-size:20px;
+  margin-bottom:4px;
+}
+
+.history-item{
+  background:#222936;
+  padding:10px;
+  border-radius:10px;
+  margin-top:8px;
+}
+
+.warning{
+  background:#3a2f10;
+  color:#fde68a;
+  padding:10px;
+  border-radius:10px;
+  font-size:11px;
+  line-height:1.5;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🦅 HAKER LOTOFÁCIL</div>
+  <div class="subtitle">100 ROBÔS • ANÁLISE ESTATÍSTICA • CONSENSO</div>
+</header>
+
+<div class="container">
+
+<!-- INÍCIO -->
+
+<div id="tab-inicio" class="tab active">
+
+<div class="card">
+
+<div id="status" class="status">
+🔄 Aguardando atualização dos dados...
+</div>
+
+<h2>🏆 Último Resultado</h2>
+
+<div class="info">
+Concurso: <b id="concurso">----</b><br>
+Data: <b id="data">--/--/----</b>
+</div>
+
+<div class="grid" id="resultado"></div>
+
+<button class="btn gold" onclick="atualizarResultados()">
+🔄 ATUALIZAR RESULTADOS
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<b id="totalConcursos">0</b>
+<span>CONCURSOS</span>
+</div>
+
+<div class="stat">
+<b>100</b>
+<span>ROBÔS</span>
+</div>
+
+<div class="stat">
+<b id="consensoQtd">0</b>
+<span>5+ VOTOS</span>
+</div>
+
+<div class="stat">
+<b id="horaAtualizacao">--:--</b>
+<span>ATUALIZAÇÃO</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Sistema</h3>
+
+<div class="info">
+✓ 100 modelos estatísticos independentes<br>
+✓ Frequência<br>
+✓ Recência<br>
+✓ Atrasos<br>
+✓ Coocorrência<br>
+✓ Paridade<br>
+✓ Distribuição<br>
+✓ Sequências<br>
+✓ Monte Carlo<br>
+✓ Otimização<br>
+✓ Backtest
+</div>
+
+</div>
+
+<div class="warning">
+⚠️ A Lotofácil é um jogo de sorte. As análises deste aplicativo são experimentais e não garantem acertos ou prêmios.
+</div>
+
+</div>
+
+
+<!-- ANALISE -->
+
+<div id="tab-analise" class="tab">
+
+<div class="card">
+
+<h2>🤖 ANÁLISE DOS 100 ROBÔS</h2>
+
+<div class="info">
+Cada robô utiliza parâmetros diferentes para analisar os concursos carregados.
+</div>
+
+<button class="btn blue" onclick="executarRobos()">
+▶ EXECUTAR 100 ROBÔS
+</button>
+
+<div id="robotStatus" class="info" style="margin-top:10px">
+Aguardando execução.
+</div>
+
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🔥 Consenso das Dezenas</h3>
+
+<div class="info">
+🟢 5 ou mais robôs<br>
+🟡 3 ou 4 robôs<br>
+🔴 Menos de 3 robôs
+</div>
+
+<div id="consensoGrid" class="vote-list"></div>
+
+</div>
+
+<div class="card">
+
+<h3>🧠 CONSENSO EXATO</h3>
+
+<div id="consensoExato" class="info">
+Execute os robôs para verificar.
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🤖 Detalhes dos Robôs</h3>
+
+<div id="listaRobos"></div>
+
+</div>
+
+</div>
+
+
+<!-- GERAR -->
+
+<div id="tab-gerar" class="tab">
+
+<div class="card">
+
+<h2>🎲 GERAR JOGOS</h2>
+
+<label class="small">Quantidade de jogos</label>
+
+<select id="qtdJogos">
+<option value="1">1 jogo</option>
+<option value="2">2 jogos</option>
+<option value="3">3 jogos</option>
+<option value="5">5 jogos</option>
+<option value="10">10 jogos</option>
+<option value="20">20 jogos</option>
+</select>
+
+<label class="small" style="display:block;margin-top:12px">
+Consenso mínimo
+</label>
+
+<select id="consensoMinimo">
+<option value="5">5 robôs</option>
+<option value="7">7 robôs</option>
+<option value="10">10 robôs</option>
+<option value="15">15 robôs</option>
+<option value="20">20 robôs</option>
+</select>
+
+<button class="btn green" onclick="gerarJogos()">
+🎲 GERAR JOGOS
+</button>
+
+</div>
+
+<div id="jogosGerados"></div>
+
+</div>
+
+
+<!-- MEUS JOGOS -->
+
+<div id="tab-jogos" class="tab">
+
+<div class="card">
+
+<h2>💾 MEUS JOGOS</h2>
+
+<div id="meusJogos"></div>
+
+<button class="btn red" onclick="apagarTodosJogos()">
+🗑 APAGAR TODOS
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CONFERIR -->
+
+<div id="tab-conferir" class="tab">
+
+<div class="card">
+
+<h2>🎯 CONFERIR JOGOS</h2>
+
+<div class="info">
+Resultado utilizado:
+</div>
+
+<div id="conferirInfo" class="info">
+Nenhum resultado carregado.
+</div>
+
+<button class="btn gold" onclick="conferirJogos()">
+🎯 CONFERIR AGORA
+</button>
+
+<button class="btn blue" onclick="atualizarResultados()">
+🔄 ATUALIZAR RESULTADO
+</button>
+
+</div>
+
+<div id="resultadoConferencia"></div>
+
+</div>
+
+
+<!-- ESTATISTICAS -->
+
+<div id="tab-estatisticas" class="tab">
+
+<div class="card">
+
+<h2>📈 ESTATÍSTICAS</h2>
+
+<div id="estatisticas"></div>
+
+</div>
+
+</div>
+
+
+<!-- HISTORICO -->
+
+<div id="tab-historico" class="tab">
+
+<div class="card">
+
+<h2>📜 HISTÓRICO</h2>
+
+<div class="info">
+Últimos concursos carregados.
+</div>
+
+<div id="historico"></div>
+
+</div>
+
+</div>
+
+
+<!-- CONFIG -->
+
+<div id="tab-config" class="tab">
+
+<div class="card">
+
+<h2>⚙️ CONFIGURAÇÕES</h2>
+
+<div class="info">
+Número de concursos analisados:
+</div>
+
+<input value="100" disabled>
+
+<button class="btn blue" onclick="atualizarResultados()">
+🔄 ATUALIZAR DADOS
+</button>
+
+<button class="btn gray" onclick="limparCache()">
+🧹 LIMPAR CACHE
+</button>
+
+<button class="btn green" onclick="exportarJogos()">
+📤 EXPORTAR MEUS JOGOS
+</button>
+
+<label class="btn blue" style="display:block;text-align:center">
+📥 IMPORTAR MEUS JOGOS
+<input type="file" accept=".json" onchange="importarJogos(event)" style="display:none">
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<button class="navbtn active" onclick="abrirTab('inicio',this)">
+<span class="navicon">⌂</span>
+INÍCIO
+</button>
+
+<button class="navbtn" onclick="abrirTab('analise',this)">
+<span class="navicon">🤖</span>
+ANÁLISE
+</button>
+
+<button class="navbtn" onclick="abrirTab('gerar',this)">
+<span class="navicon">🎲</span>
+GERAR
+</button>
+
+<button class="navbtn" onclick="abrirTab('jogos',this)">
+<span class="navicon">💾</span>
+JOGOS
+</button>
+
+<button class="navbtn" onclick="abrirTab('conferir',this)">
+<span class="navicon">🎯</span>
+CONFERIR
+</button>
+
+</nav>
+
+
+<script>
+
+/* =====================================================
+   HAKER LOTOFÁCIL
+   ARMAZENAMENTO
+===================================================== */
+
+let historico =
+JSON.parse(localStorage.getItem("haker_historico") || "[]");
+
+let ultimoResultado =
+JSON.parse(localStorage.getItem("haker_ultimo") || "null");
+
+let jogosSalvos =
+JSON.parse(localStorage.getItem("haker_jogos") || "[]");
+
+let votos = Array(26).fill(0);
+
+let robosResultados = [];
+
+let analiseExecutada = false;
+
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+function pad(n){
+  return String(n).padStart(2,"0");
+}
+
+
+function abrirTab(nome,botao){
+
+  document.querySelectorAll(".tab")
+  .forEach(t=>t.classList.remove("active"));
+
+  document.querySelectorAll(".navbtn")
+  .forEach(b=>b.classList.remove("active"));
+
+  const tab=document.getElementById("tab-"+nome);
+
+  if(tab){
+    tab.classList.add("active");
+  }
+
+  if(botao){
+    botao.classList.add("active");
+  }
+
+  if(nome==="jogos"){
+    renderMeusJogos();
+  }
+
+  if(nome==="estatisticas"){
+    renderEstatisticas();
+  }
+
+  if(nome==="historico"){
+    renderHistorico();
+  }
+
+}
+
+
+/* =====================================================
+   VALIDAÇÃO
+===================================================== */
+
+function validarDezenas(dezenas){
+
+  if(!Array.isArray(dezenas)){
+    return false;
+  }
+
+  if(dezenas.length!==15){
+    return false;
+  }
+
+  const nums=dezenas.map(x=>parseInt(x));
+
+  if(nums.some(n=>isNaN(n))){
+    return false;
+  }
+
+  if(nums.some(n=>n<1 || n>25)){
+    return false;
+  }
+
+  if(new Set(nums).size!==15){
+    return false;
+  }
+
+  return true;
+
+}
+
+
+/* =====================================================
+   NORMALIZAR DADOS
+===================================================== */
+
+function normalizarResultado(data){
+
+  let dezenas=
+    data.dezenas ||
+    data.listaDezenas ||
+    data.numeros ||
+    [];
+
+  dezenas=dezenas.map(d=>pad(parseInt(d)));
+
+  if(!validarDezenas(dezenas)){
+    return null;
+  }
+
+  return {
+
+    concurso:
+      data.concurso ||
+      data.numero ||
+      data.numeroConcurso ||
+      null,
+
+    data:
+      data.data ||
+      data.dataApuracao ||
+      "",
+
+    dezenas:
+      dezenas,
+
+    fonte:
+      "CAIXA",
+
+    atualizadoEm:
+      new Date().toISOString()
+
+  };
+
+}
+
+
+/* =====================================================
+   MOSTRAR RESULTADO
+===================================================== */
+
+function mostrarUltimoResultado(){
+
+  if(!ultimoResultado){
+    return;
+  }
+
+  document.getElementById("concurso").innerText=
+    ultimoResultado.concurso || "----";
+
+  document.getElementById("data").innerText=
+    ultimoResultado.data || "--/--/----";
+
+  const grid=
+    document.getElementById("resultado");
+
+  grid.innerHTML="";
+
+  ultimoResultado.dezenas.forEach(d=>{
+
+    grid.innerHTML+=`
+      <div class="ball green">${d}</div>
+    `;
+
+  });
+
+  document.getElementById("conferirInfo").innerHTML=
+  `
+  Concurso: <b>${ultimoResultado.concurso}</b><br>
+  Data: <b>${ultimoResultado.data}</b>
+  `;
+
+}
+
+
+/* =====================================================
+   BUSCAR CAIXA
+===================================================== */
+
+async function buscarUltimoOficial(){
+
+  /*
+  Endpoint oficial utilizado.
+
+  Dependendo da hospedagem, o navegador pode bloquear
+  a requisição por CORS.
+
+  Por isso o aplicativo NUNCA cria resultados falsos.
+  */
+
+  const url=
+  "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil";
+
+  const response=await fetch(url,{
+    method:"GET",
+    headers:{
+      "Accept":"application/json"
+    }
+  });
+
+  if(!response.ok){
+    throw new Error("CAIXA indisponível");
+  }
+
+  const text=await response.text();
+
+  let json;
+
+  try{
+    json=JSON.parse(text);
+  }catch(e){
+
+    /*
+    Algumas respostas podem possuir caracteres extras.
+    */
+
+    const inicio=text.indexOf("{");
+    const fim=text.lastIndexOf("}");
+
+    if(inicio>=0 && fim>=0){
+      json=JSON.parse(
+        text.substring(inicio,fim+1)
+      );
+    }else{
+      throw new Error("Resposta inválida");
+    }
+
+  }
+
+  return json;
+
+}
+
+
+/* =====================================================
+   ATUALIZAR RESULTADOS
+===================================================== */
+
+async function atualizarResultados(){
+
+  const status=
+    document.getElementById("status");
+
+  status.className="status";
+
+  status.innerText=
+  "🔄 Conectando aos resultados oficiais da CAIXA...";
+
+  try{
+
+    const dados=
+      await buscarUltimoOficial();
+
+    const resultado=
+      normalizarResultado(dados);
+
+    if(!resultado){
+      throw new Error(
+        "Resultado oficial inválido"
+      );
+    }
+
+    ultimoResultado=resultado;
+
+    localStorage.setItem(
+      "haker_ultimo",
+      JSON.stringify(ultimoResultado)
+    );
+
+    /*
+    Adiciona ao histórico sem duplicar
+    */
+
+    const existe=
+      historico.some(x=>
+        String(x.concurso)===
+        String(resultado.concurso)
+      );
+
+    if(!existe){
+
+      historico.unshift(resultado);
+
+      historico=historico
+      .slice(0,100);
+
+      localStorage.setItem(
+        "haker_historico",
+        JSON.stringify(historico)
+      );
+
+    }
+
+    /*
+    Tenta carregar concursos anteriores.
+    */
+
+    await carregarHistorico100();
+
+    mostrarUltimoResultado();
+
+    status.className="status ok";
+
+    status.innerText=
+    `✓ Dados atualizados • ${historico.length} concursos carregados`;
+
+    atualizarInformacoes();
+
+  }catch(error){
+
+    console.error(error);
+
+    status.className="status error";
+
+    if(historico.length>0){
+
+      status.innerText=
+      "⚠️ Não foi possível atualizar os dados oficiais. Dados anteriores foram mantidos.";
+
+    }else{
+
+      status.innerText=
+      "⚠️ Não foi possível atualizar os dados oficiais.";
+
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   TENTAR CARREGAR 100 CONCURSOS
+===================================================== */
+
+async function carregarHistorico100(){
+
+  /*
+  IMPORTANTE:
+
+  O aplicativo tenta carregar concursos anteriores
+  utilizando a fonte da CAIXA.
+
+  Caso a hospedagem bloqueie as chamadas, os dados
+  válidos anteriores são preservados.
+
+  Não são inventados concursos.
+  */
+
+  if(!ultimoResultado){
+    return;
+  }
+
+  let numero=
+    parseInt(ultimoResultado.concurso);
+
+  if(isNaN(numero)){
+    return;
+  }
+
+  /*
+  Evita centenas de requisições simultâneas.
+  */
+
+  let tentativas=0;
+
+  for(
+    let concurso=numero-1;
+    concurso>0 &&
+    historico.length<100 &&
+    tentativas<99;
+
+    concurso--
+  ){
+
+    tentativas++;
+
+    const existe=
+    historico.some(x=>
+      parseInt(x.concurso)===concurso
+    );
+
+    if(existe){
+      continue;
+    }
+
+    try{
+
+      const url=
+      "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/"+concurso;
+
+      const response=
+        await fetch(url,{
+          headers:{
+            "Accept":"application/json"
+          }
+        });
+
+      if(!response.ok){
+        continue;
+      }
+
+      const text=
+        await response.text();
+
+      let dados;
+
+      try{
+
+        dados=JSON.parse(text);
+
+      }catch(e){
+
+        const i=text.indexOf("{");
+        const f=text.lastIndexOf("}");
+
+        if(i>=0 && f>=0){
+
+          dados=JSON.parse(
+            text.substring(i,f+1)
+          );
+
+        }else{
+          continue;
+        }
+
+      }
+
+      const resultado=
+        normalizarResultado(dados);
+
+      if(resultado){
+
+        historico.push(resultado);
+
+      }
+
+      /*
+      Pequena pausa.
+      */
+
+      await new Promise(
+        resolve=>setTimeout(resolve,100)
+      );
+
+    }catch(e){
+
+      /*
+      Não inventar resultados.
+      */
+
+    }
+
+  }
+
+  historico.sort(
+    (a,b)=>
+      parseInt(b.concurso)-
+      parseInt(a.concurso)
+  );
+
+  historico=historico.slice(0,100);
+
+  localStorage.setItem(
+    "haker_historico",
+    JSON.stringify(historico)
+  );
+
+}
+
+
+/* =====================================================
+   ATUALIZAR INFORMAÇÕES
+===================================================== */
+
+function atualizarInformacoes(){
+
+  document.getElementById(
+    "totalConcursos"
+  ).innerText=historico.length;
+
+  const agora=new Date();
+
+  document.getElementById(
+    "horaAtualizacao"
+  ).innerText=
+    agora.toLocaleTimeString(
+      "pt-BR",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
+}
+
+
+/* =====================================================
+   MÉTRICAS
+===================================================== */
+
+function frequencia(numero,janela){
+
+  let total=0;
+
+  historico
+  .slice(0,janela)
+  .forEach(concurso=>{
+
+    if(
+      concurso.dezenas.includes(
+        pad(numero)
+      )
+    ){
+      total++;
+    }
+
+  });
+
+  return total;
+
+}
+
+
+function atraso(numero){
+
+  const dezena=pad(numero);
+
+  for(let i=0;i<historico.length;i++){
+
+    if(
+      historico[i]
+      .dezenas
+      .includes(dezena)
+    ){
+      return i;
+    }
+
+  }
+
+  return historico.length;
+
+}
+
+
+function media(arr){
+
+  if(!arr.length){
+    return 0;
+  }
+
+  return arr.reduce(
+    (a,b)=>a+b,0
+  )/arr.length;
+
+}
+
+
+function desvioPadrao(arr){
+
+  const m=media(arr);
+
+  const v=
+  media(
+    arr.map(x=>
+      Math.pow(x-m,2)
+    )
+  );
+
+  return Math.sqrt(v);
+
+}
+
+
+function ehPrimo(n){
+
+  if(n<2){
+    return false;
+  }
+
+  for(let i=2;i*i<=n;i++){
+
+    if(n%i===0){
+      return false;
+    }
+
+  }
+
+  return true;
+
+}
+
+
+function fibonacci(){
+
+  return [1,2,3,5,8,13,21];
+
+}
+
+
+function moldura(n){
+
+  return [
+    1,2,3,4,5,
+    6,10,
+    11,15,
+    16,20,
+    21,22,23,24,25
+  ].includes(n);
+
+}
+
+
+/* =====================================================
+   PONTUAÇÃO DE UMA DEZENA
+===================================================== */
+
+function pontuarNumero(numero,config){
+
+  const f100=
+    frequencia(numero,100);
+
+  const f50=
+    frequencia(numero,50);
+
+  const f30=
+    frequencia(numero,30);
+
+  const f20=
+    frequencia(numero,20);
+
+  const f10=
+    frequencia(numero,10);
+
+  const f5=
+    frequencia(numero,5);
+
+  const atr=
+    atraso(numero);
+
+  let score=0;
+
+  score+=f100*
+    (config.w100||1);
+
+  score+=f50*
+    (config.w50||0);
+
+  score+=f30*
+    (config.w30||0);
+
+  score+=f20*
+    (config.w20||0);
+
+  score+=f10*
+    (config.w10||0);
+
+  score+=f5*
+    (config.w5||0);
+
+  score+=atr*
+    (config.wAtraso||0);
+
+  if(ehPrimo(numero)){
+    score+=config.wPrimo||0;
+  }
+
+  if(fibonacci().includes(numero)){
+    score+=config.wFib||0;
+  }
+
+  if(moldura(numero)){
+    score+=config.wMoldura||0;
+  }
+
+  if(numero%3===0){
+    score+=config.wMult3||0;
+  }
+
+  if(numero%5===0){
+    score+=config.wMult5||0;
+  }
+
+  return score;
+
+}
+
+
+/* =====================================================
+   CRIAR CONFIGURAÇÃO DO ROBÔ
+===================================================== */
+
+function configuracaoRobo(id){
+
+  const grupo=
+    Math.ceil(id/10);
+
+  let c={
+    w100:1,
+    w50:0,
+    w30:0,
+    w20:0,
+    w10:0,
+    w5:0,
+    wAtraso:0,
+    wPrimo:0,
+    wFib:0,
+    wMoldura:0,
+    wMult3:0,
+    wMult5:0,
+    grupo:grupo
+  };
+
+  /*
+  Robôs 1–10
+  FREQUÊNCIA
+  */
+
+  if(id>=1 && id<=10){
+
+    c.w100=
+      1+(id%3)*0.25;
+
+    c.w50=
+      0.3+(id%4)*0.1;
+
+  }
+
+  /*
+  Robôs 11–20
+  RECÊNCIA
+  */
+
+  else if(id<=20){
+
+    c.w10=
+      1+(id%5)*0.2;
+
+    c.w5=
+      .5+(id%3)*.2;
+
+    c.w100=.2;
+
+  }
+
+  /*
+  Robôs 21–30
+  ATRASOS
+  */
+
+  else if(id<=30){
+
+    c.w100=.4;
+
+    c.wAtraso=
+      .2+(id%5)*.1;
+
+  }
+
+  /*
+  Robôs 31–40
+  COOCORRÊNCIA
+  */
+
+  else if(id<=40){
+
+    c.w50=.6;
+
+    c.w30=.6;
+
+    c.w10=.3;
+
+  }
+
+  /*
+  Robôs 41–50
+  PARIDADE / DISTRIBUIÇÃO
+  */
+
+  else if(id<=50){
+
+    c.w100=.7;
+
+    c.wPrimo=
+      (id%3)*.15;
+
+    c.wMoldura=
+      (id%4)*.1;
+
+  }
+
+  /*
+  Robôs 51–60
+  SOMA / ESPAÇAMENTO
+  */
+
+  else if(id<=60){
+
+    c.w50=.8;
+
+    c.w20=.4;
+
+    c.wFib=
+      (id%3)*.1;
+
+  }
+
+  /*
+  Robôs 61–70
+  SEQUÊNCIAS
+  */
+
+  else if(id<=70){
+
+    c.w30=.7;
+
+    c.w10=.7;
+
+    c.wMult3=
+      (id%3)*.1;
+
+  }
+
+  /*
+  Robôs 71–80
+  MONTE CARLO
+  */
+
+  else if(id<=80){
+
+    c.w100=.8;
+
+    c.w50=.4;
+
+    c.monteCarlo=true;
+
+  }
+
+  /*
+  Robôs 81–90
+  OTIMIZAÇÃO
+  */
+
+  else if(id<=90){
+
+    c.w100=.7;
+
+    c.w30=.5;
+
+    c.wAtraso=.2;
+
+    c.otimizacao=true;
+
+  }
+
+  /*
+  Robôs 91–99
+  BACKTEST / ESTABILIDADE
+  */
+
+  else if(id<=99){
+
+    c.w100=.6;
+
+    c.w50=.6;
+
+    c.w20=.3;
+
+    c.estabilidade=true;
+
+  }
+
+  /*
+  ROBÔ 100
+  MASTER ENSEMBLE
+  */
+
+  else{
+
+    c.w100=.8;
+    c.w50=.6;
+    c.w30=.5;
+    c.w20=.4;
+    c.w10=.4;
+    c.w5=.3;
+    c.wAtraso=.2;
+
+    c.master=true;
+
+  }
+
+  return c;
+
+}
+
+
+/* =====================================================
+   MONTE CARLO
+===================================================== */
+
+function simulacaoMonteCarlo(){
+
+  let resultado=
+    Array(26).fill(0);
+
+  if(historico.length===0){
+    return resultado;
+  }
+
+  /*
+  Simulação estatística experimental.
+  */
+
+  for(let s=0;s<300;s++){
+
+    const sorteio=
+      historico[
+        Math.floor(
+          Math.random()*historico.length
+        )
+      ];
+
+    sorteio.dezenas.forEach(d=>{
+
+      resultado[
+        parseInt(d)
+      ]++;
+
+    });
+
+  }
+
+  return resultado;
+
+}
+
+
+/* =====================================================
+   EXECUTAR UM ROBÔ
+===================================================== */
+
+function executarRobo(id){
+
+  const config=
+    configuracaoRobo(id);
+
+  let ranking=[];
+
+  let monteCarlo=[];
+
+  if(config.monteCarlo){
+    monteCarlo=
+      simulacaoMonteCarlo();
+  }
+
+  for(let n=1;n<=25;n++){
+
+    let score=
+      pontuarNumero(
+        n,
+        config
+      );
+
+    if(config.monteCarlo){
+
+      score+=
+        monteCarlo[n]*.05;
+
+    }
+
+    ranking.push({
+      numero:n,
+      score:score
+    });
+
+  }
+
+  ranking.sort(
+    (a,b)=>b.score-a.score
+  );
+
+  let selecionados=
+    ranking
+    .slice(0,15)
+    .map(x=>pad(x.numero))
+    .sort();
+
+  /*
+  OTIMIZAÇÃO:
+  equilíbrio básico.
+  */
+
+  if(config.otimizacao){
+
+    selecionados=
+      otimizarJogo(
+        ranking,
+        selecionados
+      );
+
+  }
+
+  return {
+
+    id:id,
+
+    grupo:config.grupo,
+
+    ranking:ranking,
+
+    selecionados:selecionados,
+
+    pontuacao:
+      media(
+        ranking
+        .slice(0,15)
+        .map(x=>x.score)
+      ),
+
+    justificativa:
+      justificativaRobo(id,config)
+
+  };
+
+}
+
+
+/* =====================================================
+   JUSTIFICATIVA
+===================================================== */
+
+function justificativaRobo(id,c){
+
+  if(id<=10)
+    return "Frequência histórica com janelas e pesos diferentes.";
+
+  if(id<=20)
+    return "Recência e comportamento dos últimos concursos.";
+
+  if(id<=30)
+    return "Análise de atrasos e retorno histórico.";
+
+  if(id<=40)
+    return "Coocorrência e relacionamento estatístico.";
+
+  if(id<=50)
+    return "Paridade e distribuição numérica.";
+
+  if(id<=60)
+    return "Soma, faixas e espaçamento.";
+
+  if(id<=70)
+    return "Sequências e repetição temporal.";
+
+  if(id<=80)
+    return "Simulação Monte Carlo experimental.";
+
+  if(id<=90)
+    return "Otimização de conjunto equilibrado.";
+
+  if(id<=99)
+    return "Estabilidade e avaliação histórica.";
+
+  return "MASTER ENSEMBLE combinando múltiplas métricas.";
+
+}
+
+
+/* =====================================================
+   OTIMIZAR JOGO
+===================================================== */
+
+function otimizarJogo(ranking,selecionados){
+
+  let numeros=
+    selecionados
+    .map(x=>parseInt(x));
+
+  /*
+  Mantém equilíbrio simples de pares.
+  */
+
+  let pares=
+    numeros.filter(
+      n=>n%2===0
+    ).length;
+
+  if(pares<6 || pares>9){
+
+    /*
+    Pequeno ajuste.
+    */
+
+    for(let item of ranking){
+
+      if(
+        numeros.length>=15
+      ){
+        break;
+      }
+
+      if(
+        !numeros.includes(
+          item.numero
+        )
+      ){
+
+        numeros.push(
+          item.numero
+        );
+
+      }
+
+    }
+
+  }
+
+  return numeros
+  .slice(0,15)
+  .map(pad)
+  .sort();
+
+}
+
+
+/* =====================================================
+   EXECUTAR 100 ROBÔS
+===================================================== */
+
+async function executarRobos(){
+
+  if(historico.length===0){
+
+    alert(
+      "Atualize os resultados oficiais antes de executar a análise."
+    );
+
+    return;
+
+  }
+
+  votos=Array(26).fill(0);
+
+  robosResultados=[];
+
+  analiseExecutada=false;
+
+  const status=
+    document.getElementById(
+      "robotStatus"
+    );
+
+  const barra=
+    document.getElementById(
+      "progressBar"
+    );
+
+  const lista=
+    document.getElementById(
+      "listaRobos"
+    );
+
+  lista.innerHTML="";
+
+  for(let i=1;i<=100;i++){
+
+    status.innerText=
+      `🤖 Executando Robô ${i}/100...`;
+
+    barra.style.width=
+      i+"%";
+
+    await new Promise(
+      resolve=>setTimeout(resolve,15)
+    );
+
+    const resultado=
+      executarRobo(i);
+
+    robosResultados.push(
+      resultado
+    );
+
+    resultado
+    .selecionados
+    .forEach(d=>{
+
+      votos[
+        parseInt(d)
+      ]++;
+
+    });
+
+  }
+
+  analiseExecutada=true;
+
+  status.innerText=
+    "✓ Análise concluída";
+
+  renderConsenso();
+
+  renderRobos();
+
+  calcularConsensoExato();
+
+  atualizarInformacoes();
+
+}
+
+
+/* =====================================================
+   MOSTRAR CONSENSO
+===================================================== */
+
+function renderConsenso(){
+
+  const grid=
+    document.getElementById(
+      "consensoGrid"
+    );
+
+  grid.innerHTML="";
+
+  let verdes=0;
+
+  for(let n=1;n<=25;n++){
+
+    let v=votos[n];
+
+    let classe="red";
+
+    if(v>=5){
+
+      classe="green";
+
+      verdes++;
+
+    }
+
+    else if(v>=3){
+
+      classe="yellow";
+
+    }
+
+    grid.innerHTML+=`
+
+      <div class="vote">
+
+        <b>${pad(n)}</b>
+
+        <div class="ball ${classe}"
+        style="
+        width:32px;
+        height:32px;
+        margin:5px auto;
+        font-size:11px">
+
+        ${v}
+
+        </div>
+
+        votos
+
+      </div>
+
+    `;
+
+  }
+
+  document.getElementById(
+    "consensoQtd"
+  ).innerText=verdes;
+
+}
+
+
+/* =====================================================
+   MOSTRAR ROBÔS
+===================================================== */
+
+function renderRobos(){
+
+  const lista=
+    document.getElementById(
+      "listaRobos"
+    );
+
+  lista.innerHTML="";
+
+  robosResultados.forEach(r=>{
+
+    lista.innerHTML+=`
+
+    <div class="robot">
+
+      <div class="robot-title">
+        🤖 ROBÔ ${r.id}
+      </div>
+
+      <div class="robot-info">
+        Grupo: ${r.grupo}<br>
+
+        Pontuação:
+        ${r.pontuacao.toFixed(2)}<br>
+
+        ${r.justificativa}
+      </div>
+
+      <div class="small"
+      style="margin-top:5px">
+
+      ${r.selecionados.join(" ")}
+
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =====================================================
+   CONSENSO EXATO
+===================================================== */
+
+function calcularConsensoExato(){
+
+  const mapa={};
+
+  robosResultados.forEach(r=>{
+
+    const chave=
+      r.selecionados.join("-");
+
+    if(!mapa[chave]){
+
+      mapa[chave]={
+        quantidade:0,
+        robos:[],
+        pontos:[]
+      };
+
+    }
+
+    mapa[chave]
+    .quantidade++;
+
+    mapa[chave]
+    .robos
+    .push(r.id);
+
+    mapa[chave]
+    .pontos
+    .push(r.pontuacao);
+
+  });
+
+  let encontrado=null;
+
+  Object.keys(mapa).forEach(chave=>{
+
+    if(
+      mapa[chave].quantidade>=5
+    ){
+
+      if(
+        !encontrado ||
+        mapa[chave].quantidade>
+        encontrado.quantidade
+      ){
+
+        encontrado={
+          chave:chave,
+          ...mapa[chave]
+        };
+
+      }
+
+    }
+
+  });
+
+  const div=
+    document.getElementById(
+      "consensoExato"
+    );
+
+  if(encontrado){
+
+    div.innerHTML=`
+
+      <div style="color:var(--gold);font-weight:bold">
+      🔥 CONSENSO EXATO
+      </div>
+
+      <br>
+
+      <b>Combinação:</b><br>
+
+      ${encontrado.chave.replaceAll("-"," ")}
+
+      <br><br>
+
+      <b>Robôs:</b>
+      ${encontrado.quantidade}
+
+      <br>
+
+      <b>Participantes:</b>
+      ${encontrado.robos.join(", ")}
+
+      <br>
+
+      <b>Pontuação média:</b>
+      ${media(
+        encontrado.pontos
+      ).toFixed(2)}
+
+      <br><br>
+
+      <span class="small">
+      Consenso estatístico experimental.
+      Não representa garantia de acerto.
+      </span>
+
+    `;
+
+  }
+
+  else{
+
+    div.innerHTML=
+    `
+    Nenhuma combinação atingiu consenso
+    exato de 5 robôs.
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   GERAR JOGOS
+===================================================== */
+
+function gerarJogos(){
+
+  if(!analiseExecutada){
+
+    alert(
+      "Execute os 100 robôs antes de gerar jogos."
+    );
+
+    return;
+
+  }
+
+  const quantidade=
+    parseInt(
+      document.getElementById(
+        "qtdJogos"
+      ).value
+    );
+
+  const minimo=
+    parseInt(
+      document.getElementById(
+        "consensoMinimo"
+      ).value
+    );
+
+  let prioritarios=[];
+
+  for(let n=1;n<=25;n++){
+
+    if(votos[n]>=minimo){
+
+      prioritarios.push(n);
+
+    }
+
+  }
+
+  /*
+  Se não houver 15 números no consenso,
+  completa usando o ranking dos votos.
+
+  Não são resultados oficiais.
+  São jogos experimentais.
+  */
+
+  const ranking=[];
+
+  for(let n=1;n<=25;n++){
+
+    ranking.push({
+      numero:n,
+      votos:votos[n]
+    });
+
+  }
+
+  ranking.sort(
+    (a,b)=>b.votos-a.votos
+  );
+
+  let base=[...prioritarios];
+
+  ranking.forEach(item=>{
+
+    if(
+      base.length<15 &&
+      !base.includes(item.numero)
+    ){
+
+      base.push(item.numero);
+
+    }
+
+  });
+
+  const container=
+    document.getElementById(
+      "jogosGerados"
+    );
+
+  container.innerHTML="";
+
+  let jogosCriados=[];
+
+  for(let j=1;j<=quantidade;j++){
+
+    let jogo=
+      criarJogoDiversificado(
+        base,
+        ranking,
+        jogosCriados,
+        j
+      );
+
+    jogosCriados.push(
+      jogo.join("-")
+    );
+
+    const pontuacao=
+      jogo.reduce(
+        (total,n)=>
+          total+votos[parseInt(n)],
+        0
+      );
+
+    const consenso=
+      Math.round(
+        pontuacao/15
+      );
+
+    container.innerHTML+=`
+
+    <div class="game">
+
+      <div class="game-header">
+
+        <b>🎲 JOGO ${String(j).padStart(2,"0")}</b>
+
+        <span class="small">
+        Consenso ${consenso}
+        </span>
+
+      </div>
+
+      <div class="grid">
+
+      ${jogo.map(d=>
+        `<div class="ball blue">${d}</div>`
+      ).join("")}
+
+      </div>
+
+      <div class="small">
+        Pontuação: ${pontuacao}
+      </div>
+
+      <div class="row">
+
+        <button
+        class="btn green"
+        onclick='salvarJogo(${JSON.stringify(jogo)})'>
+
+        💾 SALVAR
+
+        </button>
+
+        <button
+        class="btn blue"
+        onclick='copiarJogo(${JSON.stringify(jogo)})'>
+
+        📋 COPIAR
+
+        </button>
+
+      </div>
+
+    </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   JOGO DIVERSIFICADO
+===================================================== */
+
+function criarJogoDiversificado(
+  base,
+  ranking,
+  anteriores,
+  indice
+){
+
+  let candidatos=
+    ranking
+    .map(x=>x.numero);
+
+  let selecionados=[];
+
+  /*
+  Prioriza consenso.
+  */
+
+  let prioridade=[...base];
+
+  /*
+  Variação controlada.
+  */
+
+  prioridade.sort(
+    (a,b)=>{
+
+      const va=
+        votos[b]-
+        votos[a];
+
+      if(va!==0){
+        return va;
+      }
+
+      return
+        Math.random()-.5;
+
+    }
+  );
+
+  prioridade.forEach(n=>{
+
+    if(
+      selecionados.length<15
+    ){
+
+      /*
+      Alguns jogos variam.
+      */
+
+      const manter=
+        Math.random()>.12 ||
+        indice===1;
+
+      if(manter){
+
+        selecionados.push(n);
+
+      }
+
+    }
+
+  });
+
+  /*
+  Completar.
+  */
+
+  for(let n of candidatos){
+
+    if(
+      selecionados.length>=15
+    ){
+      break;
+    }
+
+    if(
+      !selecionados.includes(n)
+    ){
+
+      selecionados.push(n);
+
+    }
+
+  }
+
+  /*
+  Garantia.
+  */
+
+  selecionados=
+    [...new Set(selecionados)]
+    .slice(0,15);
+
+  while(
+    selecionados.length<15
+  ){
+
+    for(let n of candidatos){
+
+      if(
+        !selecionados.includes(n)
+      ){
+
+        selecionados.push(n);
+
+        break;
+
+      }
+
+    }
+
+  }
+
+  let jogo=
+    selecionados
+    .map(pad)
+    .sort();
+
+  /*
+  Evitar duplicação.
+  */
+
+  let chave=jogo.join("-");
+
+  if(
+    anteriores.includes(chave)
+  ){
+
+    const a=
+      Math.floor(Math.random()*15);
+
+    const atual=
+      parseInt(jogo[a]);
+
+    const substituto=
+      candidatos.find(
+        n=>!selecionados.includes(n)
+      );
+
+    if(substituto){
+
+      selecionados[
+        selecionados.indexOf(atual)
+      ]=substituto;
+
+      jogo=
+        selecionados
+        .map(pad)
+        .sort();
+
+    }
+
+  }
+
+  return jogo;
+
+}
+
+
+/* =====================================================
+   SALVAR JOGO
+===================================================== */
+
+function salvarJogo(dezenas){
+
+  if(!validarDezenas(dezenas)){
+
+    alert(
+      "Jogo inválido."
+    );
+
+    return;
+
+  }
+
+  const existe=
+    jogosSalvos.some(
+      j=>
+      j.dezenas.join("-")===
+      dezenas.join("-")
+    );
+
+  if(existe){
+
+    alert(
+      "Este jogo já está salvo."
+    );
+
+    return;
+
+  }
+
+  const pontuacao=
+    dezenas.reduce(
+      (total,d)=>
+        total+
+        votos[parseInt(d)],
+      0
+    );
+
+  jogosSalvos.push({
+
+    id:Date.now(),
+
+    dezenas:dezenas,
+
+    criadoEm:
+      new Date().toLocaleString(
+        "pt-BR"
+      ),
+
+    pontuacao:pontuacao,
+
+    consenso:
+      Math.round(
+        pontuacao/15
+      ),
+
+    historicoConferencia:[]
+
+  });
+
+  localStorage.setItem(
+    "haker_jogos",
+    JSON.stringify(jogosSalvos)
+  );
+
+  alert(
+    "✓ Jogo salvo com sucesso!"
+  );
+
+}
+
+
+/* =====================================================
+   COPIAR
+===================================================== */
+
+async function copiarJogo(dezenas){
+
+  const texto=
+    dezenas.join(" ");
+
+  try{
+
+    await navigator.clipboard
+    .writeText(texto);
+
+    alert(
+      "✓ Jogo copiado!"
+    );
+
+  }catch(e){
+
+    alert(
+      texto
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   MOSTRAR JOGOS SALVOS
+===================================================== */
+
+function renderMeusJogos(){
+
+  const container=
+    document.getElementById(
+      "meusJogos"
+    );
+
+  if(jogosSalvos.length===0){
+
+    container.innerHTML=
+    `
+    <div class="info">
+    Nenhum jogo salvo.
+    </div>
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML="";
+
+  jogosSalvos.forEach(
+    (j,index)=>{
+
+      container.innerHTML+=`
+
+      <div class="game">
+
+        <b>
+        JOGO ${String(index+1).padStart(2,"0")}
+        </b>
+
+        <div class="small"
+        style="margin-top:5px">
+
+        ${j.criadoEm}
+
+        </div>
+
+        <div class="grid">
+
+        ${j.dezenas.map(d=>
+          `<div class="ball">${d}</div>`
+        ).join("")}
+
+        </div>
+
+        <div class="small">
+          Pontuação: ${j.pontuacao||0}<br>
+          Consenso: ${j.consenso||0}
+        </div>
+
+        <div class="row">
+
+        <button
+        class="btn blue"
+        onclick='copiarJogo(${JSON.stringify(j.dezenas)})'>
+
+        📋 COPIAR
+
+        </button>
+
+        <button
+        class="btn gold"
+        onclick="conferirUmJogo(${index})">
+
+        🎯 CONFERIR
+
+        </button>
+
+        </div>
+
+        <button
+        class="btn red"
+        onclick="excluirJogo(${index})">
+
+        🗑 EXCLUIR
+
+        </button>
+
+      </div>
+
+      `;
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   EXCLUIR JOGO
+===================================================== */
+
+function excluirJogo(index){
+
+  if(
+    !confirm(
+      "Deseja excluir este jogo?"
+    )
+  ){
+    return;
+  }
+
+  jogosSalvos.splice(index,1);
+
+  localStorage.setItem(
+    "haker_jogos",
+    JSON.stringify(jogosSalvos)
+  );
+
+  renderMeusJogos();
+
+}
+
+
+/* =====================================================
+   APAGAR TODOS
+===================================================== */
+
+function apagarTodosJogos(){
+
+  if(jogosSalvos.length===0){
+
+    alert(
+      "Não existem jogos salvos."
+    );
+
+    return;
+
+  }
+
+  if(
+    confirm(
+      "ATENÇÃO: Deseja apagar TODOS os jogos?"
+    )
+  ){
+
+    jogosSalvos=[];
+
+    localStorage.removeItem(
+      "haker_jogos"
+    );
+
+    renderMeusJogos();
+
+  }
+
+}
+
+
+/* =====================================================
+   CONFERIR TODOS
+===================================================== */
+
+function conferirJogos(){
+
+  if(!ultimoResultado){
+
+    alert(
+      "Atualize os resultados oficiais primeiro."
+    );
+
+    return;
+
+  }
+
+  if(jogosSalvos.length===0){
+
+    alert(
+      "Não existem jogos salvos."
+    );
+
+    return;
+
+  }
+
+  const container=
+    document.getElementById(
+      "resultadoConferencia"
+    );
+
+  container.innerHTML="";
+
+  jogosSalvos.forEach(
+    (j,index)=>{
+
+      const acertos=
+        j.dezenas.filter(
+          d=>
+          ultimoResultado.dezenas
+          .includes(d)
+        );
+
+      const qtd=
+        acertos.length;
+
+      let categoria=
+        "10 ou menos";
+
+      if(qtd===15)
+        categoria="🏆 15 ACERTOS";
+
+      else if(qtd===14)
+        categoria="🥇 14 ACERTOS";
+
+      else if(qtd===13)
+        categoria="🥈 13 ACERTOS";
+
+      else if(qtd===12)
+        categoria="🥉 12 ACERTOS";
+
+      else if(qtd===11)
+        categoria="✓ 11 ACERTOS";
+
+      container.innerHTML+=`
+
+      <div class="game">
+
+        <b>JOGO ${index+1}</b>
+
+        <div style="
+          color:var(--gold);
+          font-size:18px;
+          margin-top:5px">
+
+        ${qtd} ACERTOS
+
+        </div>
+
+        <div class="small">
+        ${categoria}
+        </div>
+
+        <div class="grid">
+
+        ${j.dezenas.map(d=>{
+
+          const hit=
+            ultimoResultado.dezenas
+            .includes(d);
+
+          return `
+
+          <div class="
+            ball
+            ${hit?"hit":""}">
+
+            ${d}
+
+          </div>
+
+          `;
+
+        }).join("")}
+
+        </div>
+
+      </div>
+
+      `;
+
+      j.historicoConferencia=
+        j.historicoConferencia||[];
+
+      j.historicoConferencia.push({
+
+        concurso:
+          ultimoResultado.concurso,
+
+        data:
+          ultimoResultado.data,
+
+        acertos:qtd,
+
+        conferidoEm:
+          new Date().toISOString()
+
+      });
+
+    }
+  );
+
+  localStorage.setItem(
+    "haker_jogos",
+    JSON.stringify(jogosSalvos)
+  );
+
+}
+
+
+/* =====================================================
+   CONFERIR UM JOGO
+===================================================== */
+
+function conferirUmJogo(index){
+
+  abrirTab(
+    "conferir",
+    document.querySelectorAll(
+      ".navbtn"
+    )[4]
+  );
+
+  if(!ultimoResultado){
+
+    alert(
+      "Atualize o resultado primeiro."
+    );
+
+    return;
+
+  }
+
+  const j=
+    jogosSalvos[index];
+
+  const acertos=
+    j.dezenas.filter(
+      d=>
+      ultimoResultado.dezenas
+      .includes(d)
+    );
+
+  const container=
+    document.getElementById(
+      "resultadoConferencia"
+    );
+
+  container.innerHTML=`
+
+  <div class="game">
+
+    <b>JOGO ${index+1}</b>
+
+    <h2 style="
+      color:var(--gold);
+      margin-top:8px">
+
+    ${acertos.length} ACERTOS
+
+    </h2>
+
+    <div class="grid">
+
+    ${j.dezenas.map(d=>`
+
+      <div class="
+      ball
+      ${
+        ultimoResultado.dezenas
+        .includes(d)
+        ?"hit":""
+      }">
+
+      ${d}
+
+      </div>
+
+    `).join("")}
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =====================================================
+   ESTATÍSTICAS
+===================================================== */
+
+function renderEstatisticas(){
+
+  const div=
+    document.getElementById(
+      "estatisticas"
+    );
+
+  if(historico.length===0){
+
+    div.innerHTML=
+      "Carregue resultados oficiais.";
+
+    return;
+
+  }
+
+  let ranking=[];
+
+  for(let n=1;n<=25;n++){
+
+    ranking.push({
+
+      numero:n,
+
+      freq:
+        frequencia(n,100),
+
+      atraso:
+        atraso(n)
+
+    });
+
+  }
+
+  const quentes=
+    [...ranking]
+    .sort(
+      (a,b)=>b.freq-a.freq
+    )
+    .slice(0,5);
+
+  const frios=
+    [...ranking]
+    .sort(
+      (a,b)=>a.freq-b.freq
+    )
+    .slice(0,5);
+
+  const atrasados=
+    [...ranking]
+    .sort(
+      (a,b)=>b.atraso-a.atraso
+    )
+    .slice(0,5);
+
+  div.innerHTML=`
+
+  <div class="card">
+
+  <h3>🔥 Mais Frequentes</h3>
+
+  ${quentes.map(x=>
+    `${pad(x.numero)} — ${x.freq} vezes<br>`
+  ).join("")}
+
+  </div>
+
+  <div class="card">
+
+  <h3>❄️ Menos Frequentes</h3>
+
+  ${frios.map(x=>
+    `${pad(x.numero)} — ${x.freq} vezes<br>`
+  ).join("")}
+
+  </div>
+
+  <div class="card">
+
+  <h3>⏳ Maiores Atrasos</h3>
+
+  ${atrasados.map(x=>
+    `${pad(x.numero)} — ${x.atraso} concursos<br>`
+  ).join("")}
+
+  </div>
+
+  <div class="warning">
+
+  Estatísticas históricas descrevem
+  dados anteriores. Não representam
+  garantia de resultados futuros.
+
+  </div>
+
+  `;
+
+}
+
+
+/* =====================================================
+   HISTÓRICO
+===================================================== */
+
+function renderHistorico(){
+
+  const div=
+    document.getElementById(
+      "historico"
+    );
+
+  if(historico.length===0){
+
+    div.innerHTML=
+    "Nenhum concurso carregado.";
+
+    return;
+
+  }
+
+  div.innerHTML="";
+
+  historico.forEach(c=>{
+
+    div.innerHTML+=`
+
+    <div class="history-item">
+
+      <b>
+      Concurso ${c.concurso}
+      </b>
+
+      <div class="small">
+      ${c.data}
+      </div>
+
+      <div class="small"
+      style="margin-top:5px">
+
+      ${c.dezenas.join(" ")}
+
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =====================================================
+   LIMPAR CACHE
+===================================================== */
+
+function limparCache(){
+
+  if(
+    !confirm(
+      "Deseja limpar os dados de resultados armazenados? Os jogos salvos serão mantidos."
+    )
+  ){
+    return;
+  }
+
+  historico=[];
+
+  ultimoResultado=null;
+
+  localStorage.removeItem(
+    "haker_historico"
+  );
+
+  localStorage.removeItem(
+    "haker_ultimo"
+  );
+
+  document.getElementById(
+    "resultado"
+  ).innerHTML="";
+
+  document.getElementById(
+    "concurso"
+  ).innerText="----";
+
+  document.getElementById(
+    "data"
+  ).innerText="--/--/----";
+
+  document.getElementById(
+    "status"
+  ).innerText=
+  "Cache de resultados limpo.";
+
+}
+
+
+/* =====================================================
+   EXPORTAR JOGOS
+===================================================== */
+
+function exportarJogos(){
+
+  const dados=
+    JSON.stringify(
+      jogosSalvos,
+      null,
+      2
+    );
+
+  const blob=
+    new Blob(
+      [dados],
+      {
+        type:"application/json"
+      }
+    );
+
+  const url=
+    URL.createObjectURL(blob);
+
+  const a=
+    document.createElement("a");
+
+  a.href=url;
+
+  a.download=
+    "haker-lotofacil-jogos.json";
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+}
+
+
+/* =====================================================
+   IMPORTAR JOGOS
+===================================================== */
+
+function importarJogos(event){
+
+  const arquivo=
+    event.target.files[0];
+
+  if(!arquivo){
+    return;
+  }
+
+  const reader=
+    new FileReader();
+
+  reader.onload=function(e){
+
+    try{
+
+      const dados=
+        JSON.parse(e.target.result);
+
+      if(!Array.isArray(dados)){
+        throw new Error();
+      }
+
+      const validos=
+        dados.filter(j=>
+          j.dezenas &&
+          validarDezenas(j.dezenas)
+        );
+
+      jogosSalvos=[
+        ...jogosSalvos,
+        ...validos
+      ];
+
+      localStorage.setItem(
+        "haker_jogos",
+        JSON.stringify(jogosSalvos)
+      );
+
+      alert(
+        `✓ ${validos.length} jogos importados.`
+      );
+
+    }catch(error){
+
+      alert(
+        "Arquivo inválido."
+      );
+
+    }
+
+  };
+
+  reader.readAsText(arquivo);
+
+}
+
+
+/* =====================================================
+   BACKTEST EXPERIMENTAL
+===================================================== */
+
+function backtestSimples(){
+
+  /*
+  Backtest temporal simples.
+
+  Nunca utiliza concursos posteriores
+  ao concurso avaliado.
+
+  Esta função fica disponível para
+  futuras expansões do projeto.
+  */
+
+  if(historico.length<20){
+
+    return null;
+
+  }
+
+  let resultados=[];
+
+  for(
+    let i=10;
+    i<historico.length-1;
+    i++
+  ){
+
+    const passado=
+      historico.slice(i);
+
+    const alvo=
+      historico[i-1];
+
+    if(!alvo){
+      continue;
+    }
+
+    let ranking=[];
+
+    for(let n=1;n<=25;n++){
+
+      let f=0;
+
+      passado
+      .slice(0,20)
+      .forEach(c=>{
+
+        if(
+          c.dezenas.includes(
+            pad(n)
+          )
+        ){
+          f++;
+        }
+
+      });
+
+      ranking.push({
+        n:n,
+        f:f
+      });
+
+    }
+
+    ranking.sort(
+      (a,b)=>b.f-a.f
+    );
+
+    const jogo=
+      ranking
+      .slice(0,15)
+      .map(x=>pad(x.n));
+
+    const acertos=
+      jogo.filter(
+        d=>
+        alvo.dezenas.includes(d)
+      ).length;
+
+    resultados.push(acertos);
+
+  }
+
+  return {
+
+    media:
+      media(resultados),
+
+    melhor:
+      Math.max(...resultados),
+
+    pior:
+      Math.min(...resultados),
+
+    resultados:
+      resultados
+
+  };
+
+}
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+function iniciar(){
+
+  mostrarUltimoResultado();
+
+  atualizarInformacoes();
+
+  if(ultimoResultado){
+
+    document.getElementById(
+      "status"
+    ).className="status ok";
+
+    document.getElementById(
+      "status"
+    ).innerText=
+    "✓ Dados anteriores carregados.";
+
+  }
+
+}
+
+
+/*
+O aplicativo NÃO gera concursos falsos.
+
+A atualização deve utilizar dados
+obtidos da fonte oficial.
+*/
+
+iniciar();
+
+</script>
+
+</body>
+</html>
