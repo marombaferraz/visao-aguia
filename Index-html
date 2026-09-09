@@ -1,0 +1,1617 @@
+ATUALIZE E COMPLETE O APLICATIVO JÁ EXISTENTE.
+
+NOME DO APLICATIVO:
+
+🦅 HAKER LOTOFÁCIL
+
+IMPORTANTE:
+NÃO APAGAR O QUE JÁ ESTÁ FUNCIONANDO.
+
+MANTER:
+- o nome HAKER LOTOFÁCIL;
+- o tema escuro;
+- o logo/ícone da Águia já existente;
+- o visual atual;
+- os botões existentes;
+- os jogos já salvos;
+- o armazenamento local;
+- a estrutura que já funciona.
+
+CORRIGIR E COMPLETAR O PROJETO EXISTENTE.
+
+NÃO CRIAR APENAS UMA DEMONSTRAÇÃO VISUAL.
+
+TODOS OS BOTÕES DEVEM FUNCIONAR DE VERDADE.
+
+====================================================
+OBJETIVO PRINCIPAL
+====================================================
+
+Transformar o projeto existente em um aplicativo mobile funcional para análise estatística da Lotofácil.
+
+O aplicativo deve:
+
+1. Buscar automaticamente resultados oficiais.
+2. Carregar os últimos 100 concursos disponíveis.
+3. Validar os resultados.
+4. Armazenar os dados.
+5. Executar 100 robôs estatísticos independentes.
+6. Analisar frequência, padrões e probabilidades.
+7. Utilizar modelos inspirados em análise de padrões de sequência.
+8. Criar ranking estatístico das dezenas.
+9. Calcular consenso dos robôs.
+10. Gerar jogos de 15 dezenas.
+11. Salvar jogos.
+12. Copiar jogos.
+13. Conferir jogos.
+14. Mostrar estatísticas.
+15. Funcionar corretamente no celular.
+16. Continuar funcionando offline com os últimos dados armazenados.
+
+====================================================
+REGRA FUNDAMENTAL
+====================================================
+
+NÃO INVENTAR RESULTADOS OFICIAIS.
+
+NÃO USAR NÚMEROS ALEATÓRIOS COMO SE FOSSEM
+RESULTADOS DA CAIXA.
+
+SE A FONTE OFICIAL NÃO ESTIVER DISPONÍVEL:
+
+Mostrar:
+
+⚠️ Não foi possível atualizar os resultados oficiais.
+
+Manter os últimos dados válidos armazenados.
+
+Nunca substituir dados reais por dados falsos.
+
+====================================================
+FONTE DOS RESULTADOS
+====================================================
+
+Criar uma função de atualização automática.
+
+Buscar os últimos 100 concursos disponíveis da LOTOFÁCIL.
+
+Priorizar a fonte oficial da:
+
+CAIXA ECONÔMICA FEDERAL.
+
+A arquitetura deve ser preparada corretamente para evitar
+problemas de CORS.
+
+SE NECESSÁRIO:
+
+utilizar BACKEND ou SERVER FUNCTION.
+
+O FRONTEND não deve depender exclusivamente de uma chamada
+direta do navegador.
+
+Criar uma função:
+
+atualizarResultados()
+
+Essa função deve:
+
+1. Consultar a fonte oficial.
+2. Obter o último concurso.
+3. Descobrir o número do concurso.
+4. Buscar os últimos 100 concursos.
+5. Validar cada resultado.
+6. Salvar os resultados.
+7. Atualizar a interface.
+8. Informar a data e hora da atualização.
+
+====================================================
+VALIDAÇÃO DOS RESULTADOS
+====================================================
+
+Cada concurso deve obrigatoriamente possuir:
+
+- número do concurso;
+- data;
+- exatamente 15 dezenas;
+- dezenas entre 01 e 25;
+- nenhuma dezena repetida.
+
+Criar função:
+
+validarConcurso()
+
+A função deve rejeitar:
+
+- menos de 15 dezenas;
+- mais de 15 dezenas;
+- números repetidos;
+- números fora de 01 a 25;
+- dados inválidos;
+- dados incompletos.
+
+Somente dados válidos devem entrar nas análises.
+
+====================================================
+ARMAZENAMENTO
+====================================================
+
+Manter armazenamento persistente.
+
+Utilizar localStorage, IndexedDB ou banco de dados disponível
+no projeto.
+
+Salvar:
+
+concursos;
+último resultado;
+data da atualização;
+hora da atualização;
+jogos gerados;
+jogos salvos;
+histórico de conferência;
+resultados das análises;
+ranking;
+consenso;
+configurações.
+
+Os jogos do usuário não podem desaparecer ao fechar o aplicativo.
+
+====================================================
+ATUALIZAÇÃO AUTOMÁTICA
+====================================================
+
+Quando o aplicativo abrir:
+
+1. Carregar dados armazenados.
+2. Mostrar os dados imediatamente.
+3. Tentar atualizar automaticamente quando houver internet.
+4. Se a atualização funcionar, substituir pelos novos dados válidos.
+5. Se falhar, manter os dados anteriores.
+
+Mostrar status:
+
+🔄 Atualizando resultados oficiais...
+
+Depois:
+
+✓ Dados atualizados
+
+Mostrar também:
+
+Última atualização:
+
+DATA
+
+HORA
+
+Quantidade de concursos carregados:
+
+100
+
+====================================================
+TELA INÍCIO
+====================================================
+
+Manter o logo da Águia.
+
+Manter o título:
+
+🦅 HAKER LOTOFÁCIL
+
+Subtítulo:
+
+100 ROBÔS • ANÁLISE ESTATÍSTICA • CONSENSO
+
+Mostrar:
+
+STATUS DOS DADOS
+
+Último Concurso
+
+Número do Concurso
+
+Data
+
+15 dezenas sorteadas
+
+Quantidade de concursos carregados
+
+Robôs ativos:
+
+100 / 100
+
+Quantidade de dezenas com consenso
+
+Última atualização
+
+Criar botão grande:
+
+🔄 ATUALIZAR RESULTADOS
+
+O botão deve funcionar realmente.
+
+Ao tocar:
+
+- iniciar atualização;
+- mostrar carregamento;
+- buscar resultados;
+- validar dados;
+- salvar;
+- atualizar a tela.
+
+====================================================
+LOGO DA ÁGUIA
+====================================================
+
+NÃO REMOVER O LOGO DA ÁGUIA JÁ EXISTENTE.
+
+Manter o logo funcionando como identidade visual do aplicativo.
+
+Utilizar a Águia:
+
+- no cabeçalho;
+- no ícone;
+- na splash screen;
+- quando possível no PWA.
+
+====================================================
+100 ROBÔS ESTATÍSTICOS
+====================================================
+
+Criar exatamente:
+
+100 ROBÔS
+
+IMPORTANTE:
+
+Não criar simplesmente 100 robôs com nomes diferentes.
+
+Cada robô deve ter diferenças reais.
+
+Todos devem analisar os mesmos últimos 100 concursos,
+porém com:
+
+- pesos diferentes;
+- janelas diferentes;
+- critérios diferentes;
+- parâmetros diferentes;
+- métodos diferentes.
+
+Cada robô deve produzir:
+
+- ranking das 25 dezenas;
+- pontuação;
+- 15 dezenas selecionadas;
+- justificativa;
+- métricas utilizadas.
+
+====================================================
+ROBÔS 1 A 10
+FREQUÊNCIA
+====================================================
+
+Analisar:
+
+- frequência nos últimos 5;
+- últimos 10;
+- últimos 20;
+- últimos 30;
+- últimos 50;
+- últimos 100 concursos.
+
+Utilizar pesos diferentes.
+
+Exemplo:
+
+Robô 1:
+frequência total.
+
+Robô 2:
+últimos 5 concursos.
+
+Robô 3:
+últimos 10.
+
+Robô 4:
+últimos 20.
+
+Robô 5:
+últimos 30.
+
+Robô 6:
+últimos 50.
+
+Robô 7:
+frequência ponderada.
+
+Robô 8:
+frequência com média móvel.
+
+Robô 9:
+frequência normalizada.
+
+Robô 10:
+combinação de frequências.
+
+====================================================
+ROBÔS 11 A 20
+RECÊNCIA
+====================================================
+
+Analisar:
+
+quando cada número apareceu pela última vez.
+
+Calcular:
+
+- distância desde a última aparição;
+- recência;
+- tendência recente;
+- presença nos últimos concursos.
+
+Criar variações de pesos.
+
+====================================================
+ROBÔS 21 A 30
+ATRASOS
+====================================================
+
+Calcular:
+
+atraso atual;
+
+atraso médio;
+
+atraso histórico;
+
+desvio do atraso.
+
+Não assumir que um número atrasado tem maior chance.
+
+Utilizar o atraso apenas como variável estatística.
+
+====================================================
+ROBÔS 31 A 40
+COOCORRÊNCIA
+====================================================
+
+Analisar:
+
+pares de dezenas.
+
+Trincas de dezenas.
+
+Calcular:
+
+quantas vezes aparecem juntas.
+
+Criar matriz de coocorrência.
+
+Usar a matriz como parte da pontuação.
+
+====================================================
+ROBÔS 41 A 50
+PARIDADE E DISTRIBUIÇÃO
+====================================================
+
+Analisar:
+
+pares;
+
+ímpares;
+
+distribuição entre:
+
+01–05
+
+06–10
+
+11–15
+
+16–20
+
+21–25
+
+Criar jogos equilibrados.
+
+====================================================
+ROBÔS 51 A 60
+SOMA E ESPAÇAMENTO
+====================================================
+
+Calcular:
+
+soma das dezenas;
+
+média;
+
+mediana;
+
+desvio padrão;
+
+distância entre números;
+
+espaçamento.
+
+Comparar com padrões históricos.
+
+====================================================
+ROBÔS 61 A 70
+SEQUÊNCIAS E REPETIÇÕES
+====================================================
+
+Analisar:
+
+sequências consecutivas.
+
+Exemplos:
+
+01 02
+
+05 06 07
+
+18 19
+
+Calcular:
+
+quantidade de sequências.
+
+Analisar:
+
+repetições do concurso anterior.
+
+Analisar:
+
+estrutura das sequências.
+
+====================================================
+ANÁLISE DE PADRÕES DE SEQUÊNCIA
+====================================================
+
+CRIAR UMA CAMADA DE ANÁLISE INSPIRADA EM
+ALGORITMOS DE PADRÕES DE LINGUAGEM.
+
+IMPORTANTE:
+
+NÃO DIZER QUE NÚMEROS POSSUEM UMA LINGUAGEM
+OU QUE ISSO PREVÊ O FUTURO.
+
+Tratar os resultados como:
+
+SEQUÊNCIAS DE SÍMBOLOS NUMÉRICOS.
+
+Utilizar conceitos inspirados em:
+
+- análise de sequência;
+- n-gramas;
+- transições;
+- contexto;
+- padrões recorrentes;
+- probabilidade condicional;
+- matriz de transição.
+
+====================================================
+MODELO DE PADRÕES NUMÉRICOS
+====================================================
+
+Representar cada concurso como uma sequência.
+
+Exemplo:
+
+01 03 04 06 08 10 ...
+
+Analisar padrões históricos.
+
+Criar:
+
+UNIGRAMAS
+
+Frequência individual das dezenas.
+
+BIGRAMAS
+
+Pares de dezenas que aparecem juntas.
+
+TRIGRAMAS
+
+Trincas que aparecem juntas.
+
+MODELO DE TRANSIÇÃO
+
+Analisar:
+
+qual a frequência histórica de determinados padrões
+aparecerem após outros padrões.
+
+IMPORTANTE:
+
+Usar isso apenas como MÉTRICA ESTATÍSTICA.
+
+Não apresentar como previsão garantida.
+
+====================================================
+PROBABILIDADE ESTATÍSTICA
+====================================================
+
+Calcular scores probabilísticos baseados em:
+
+frequência;
+
+recência;
+
+atraso;
+
+coocorrência;
+
+estabilidade;
+
+padrões;
+
+sequências;
+
+paridade;
+
+distribuição.
+
+Criar uma pontuação normalizada.
+
+Exemplo:
+
+score entre:
+
+0 e 100.
+
+O score representa apenas:
+
+RANKING ESTATÍSTICO EXPERIMENTAL.
+
+====================================================
+ROBÔS 71 A 80
+MONTE CARLO
+====================================================
+
+Criar robôs que utilizem:
+
+SIMULAÇÃO MONTE CARLO.
+
+Utilizar apenas dados históricos.
+
+Cada robô deve ter:
+
+parâmetros diferentes.
+
+Executar simulações estatísticas.
+
+Mostrar:
+
+quantidade de simulações;
+
+distribuição;
+
+ranking;
+
+pontuação.
+
+IMPORTANTE:
+
+NUNCA escrever:
+
+"previsão garantida".
+
+Mostrar:
+
+"Simulação estatística experimental."
+
+====================================================
+ROBÔS 81 A 90
+OTIMIZAÇÃO
+====================================================
+
+Criar algoritmos de otimização.
+
+Objetivo:
+
+procurar conjuntos de 15 dezenas equilibrados.
+
+Considerar:
+
+frequência;
+
+recência;
+
+atraso;
+
+paridade;
+
+soma;
+
+distribuição;
+
+coocorrência;
+
+sequências;
+
+diversidade.
+
+Utilizar métodos de busca.
+
+Evitar:
+
+combinações duplicadas.
+
+====================================================
+ROBÔS 91 A 99
+BACKTEST
+====================================================
+
+Criar backtest temporal.
+
+REGRA FUNDAMENTAL:
+
+NÃO UTILIZAR DADOS FUTUROS.
+
+Para testar um concurso antigo:
+
+usar somente os concursos anteriores a ele.
+
+Exemplo:
+
+para testar o concurso 1000:
+
+usar apenas concursos anteriores ao 1000.
+
+Calcular:
+
+média de acertos;
+
+melhor resultado;
+
+pior resultado.
+
+Contabilizar:
+
+11 acertos;
+
+12 acertos;
+
+13 acertos;
+
+14 acertos;
+
+15 acertos.
+
+Mostrar:
+
+"Resultados históricos não garantem resultados futuros."
+
+====================================================
+ROBÔ 100
+MASTER ENSEMBLE
+====================================================
+
+Criar:
+
+ROBÔ 100 – MASTER ENSEMBLE.
+
+Esse robô não deve simplesmente escolher números aleatórios.
+
+Ele deve combinar resultados dos outros robôs.
+
+Considerar:
+
+pontuação;
+
+estabilidade;
+
+backtest;
+
+consenso;
+
+diversidade.
+
+Criar ranking final.
+
+====================================================
+EXECUÇÃO DOS ROBÔS
+====================================================
+
+Na tela ANÁLISE:
+
+Criar botão:
+
+🤖 EXECUTAR 100 ROBÔS
+
+Durante a execução:
+
+mostrar progresso.
+
+Exemplo:
+
+Executando Robô 1/100
+
+Executando Robô 2/100
+
+...
+
+Executando Robô 100/100
+
+Depois:
+
+✓ ANÁLISE CONCLUÍDA
+
+Evitar travamento da interface.
+
+Usar processamento assíncrono quando necessário.
+
+====================================================
+CONSENSO POR DEZENA
+====================================================
+
+Depois que os 100 robôs terminarem:
+
+contar os votos.
+
+Para cada dezena:
+
+01 = X votos
+
+02 = X votos
+
+...
+
+25 = X votos.
+
+Classificar:
+
+🟢 VERDE
+
+5 ou mais votos.
+
+🟡 AMARELO
+
+3 ou 4 votos.
+
+🔴 VERMELHO
+
+menos de 3 votos.
+
+IMPORTANTE:
+
+Mostrar também o número de votos.
+
+Exemplo:
+
+01
+
+72 votos
+
+====================================================
+RANKING
+====================================================
+
+Criar ranking:
+
+TOP 25 DEZENAS.
+
+Mostrar:
+
+posição;
+
+dezena;
+
+votos;
+
+score estatístico.
+
+Exemplo:
+
+#1
+
+13
+
+82 votos
+
+Score: 91.4
+
+====================================================
+CONSENSO EXATO DE COMBINAÇÃO
+====================================================
+
+Cada robô gera uma combinação de 15 dezenas.
+
+Comparar as combinações.
+
+Se:
+
+5 ou mais robôs
+
+gerarem exatamente a mesma combinação:
+
+mostrar:
+
+🔥 CONSENSO EXATO
+
+Mostrar:
+
+as 15 dezenas;
+
+quantidade de robôs;
+
+robôs participantes;
+
+pontuação média.
+
+Mostrar obrigatoriamente:
+
+"Consenso estatístico experimental.
+Não representa garantia de acerto."
+
+Se não existir:
+
+mostrar:
+
+"Nenhuma combinação atingiu consenso exato de 5 robôs."
+
+NÃO INVENTAR CONSENSO.
+
+====================================================
+GERAR JOGOS
+====================================================
+
+Criar tela:
+
+🎲 GERAR JOGOS
+
+Permitir:
+
+1 jogo
+
+2 jogos
+
+3 jogos
+
+5 jogos
+
+10 jogos
+
+20 jogos.
+
+Adicionar:
+
+CONSENSO MÍNIMO.
+
+Opções:
+
+5
+
+7
+
+10
+
+15
+
+20.
+
+Criar botão:
+
+🎲 GERAR JOGOS
+
+====================================================
+ALGORITMO DE GERAÇÃO
+====================================================
+
+Cada jogo deve:
+
+ter exatamente 15 dezenas.
+
+Todas devem estar entre:
+
+01 e 25.
+
+Nenhuma pode repetir.
+
+Priorizar:
+
+maior consenso.
+
+Considerar:
+
+score;
+
+ranking;
+
+distribuição;
+
+paridade;
+
+diversidade.
+
+====================================================
+DIVERSIFICAÇÃO
+====================================================
+
+Quando o usuário gerar vários jogos:
+
+não gerar todos iguais.
+
+Criar diversidade controlada.
+
+Priorizar números com maior score.
+
+Permitir pequenas variações.
+
+Evitar duplicação.
+
+Validar todos os jogos.
+
+====================================================
+CADA JOGO
+====================================================
+
+Mostrar:
+
+JOGO 01
+
+01 03 04 06 07
+
+09 11 13 15 17
+
+18 20 21 23 25
+
+Mostrar:
+
+Score Estatístico:
+
+XX
+
+Consenso:
+
+XX
+
+Criar botões funcionais:
+
+💾 SALVAR
+
+📋 COPIAR
+
+🔄 GERAR NOVAMENTE
+
+====================================================
+MEUS JOGOS
+====================================================
+
+Criar:
+
+📁 MEUS JOGOS
+
+Mostrar todos os jogos salvos.
+
+Cada jogo deve guardar:
+
+data;
+
+hora;
+
+dezenas;
+
+score;
+
+consenso.
+
+Criar botões:
+
+📋 COPIAR
+
+🎯 CONFERIR
+
+🗑 EXCLUIR.
+
+Criar botão:
+
+🗑 APAGAR TODOS.
+
+Antes de apagar:
+
+pedir confirmação.
+
+====================================================
+CONFERIR JOGOS
+====================================================
+
+Criar tela:
+
+🎯 CONFERIR
+
+Usar o último resultado oficial disponível.
+
+Mostrar:
+
+CONCURSO:
+
+XXXX
+
+DATA:
+
+XX/XX/XXXX
+
+RESULTADO:
+
+15 dezenas.
+
+Para cada jogo:
+
+JOGO 01
+
+X ACERTOS
+
+Destacar:
+
+🟢 números acertados.
+
+Mostrar:
+
+15 acertos;
+
+14 acertos;
+
+13 acertos;
+
+12 acertos;
+
+11 acertos;
+
+10 ou menos.
+
+====================================================
+BOTÃO ATUALIZAR RESULTADO
+====================================================
+
+Criar botão:
+
+🔄 ATUALIZAR RESULTADO
+
+Esse botão deve:
+
+buscar novamente os resultados;
+
+validar;
+
+atualizar;
+
+salvar.
+
+====================================================
+ESTATÍSTICAS
+====================================================
+
+Criar área de estatísticas.
+
+Mostrar:
+
+números mais frequentes;
+
+números menos frequentes;
+
+maiores atrasos;
+
+menores atrasos;
+
+pares mais frequentes;
+
+trincas mais frequentes;
+
+média da soma;
+
+média de repetição;
+
+distribuição por faixas;
+
+paridade.
+
+Criar gráficos responsivos.
+
+Os gráficos devem funcionar em telas pequenas.
+
+====================================================
+HISTÓRICO
+====================================================
+
+Criar tela:
+
+📜 HISTÓRICO
+
+Mostrar os últimos 100 concursos.
+
+Cada item:
+
+Concurso;
+
+Data;
+
+15 dezenas.
+
+Permitir:
+
+abrir detalhes do concurso.
+
+====================================================
+CONFIGURAÇÕES
+====================================================
+
+Criar tela:
+
+⚙️ CONFIGURAÇÕES
+
+Opções:
+
+Quantidade padrão de jogos.
+
+Consenso mínimo padrão:
+
+5.
+
+Número de concursos analisados:
+
+100.
+
+Botão:
+
+🔄 ATUALIZAR DADOS
+
+Botão:
+
+🗑 LIMPAR CACHE
+
+Botão:
+
+📤 EXPORTAR MEUS JOGOS
+
+Botão:
+
+📥 IMPORTAR MEUS JOGOS
+
+====================================================
+EXPORTAR JOGOS
+====================================================
+
+Permitir exportar os jogos salvos.
+
+Formato:
+
+JSON ou TXT.
+
+Não perder os jogos existentes.
+
+====================================================
+IMPORTAR JOGOS
+====================================================
+
+Permitir importar jogos anteriormente exportados.
+
+Validar:
+
+15 dezenas;
+
+01 a 25;
+
+sem repetição.
+
+====================================================
+PWA
+====================================================
+
+Transformar o projeto em PWA.
+
+Criar:
+
+manifest.json;
+
+service worker;
+
+ícones;
+
+splash screen.
+
+Configurar:
+
+display standalone.
+
+Permitir:
+
+Adicionar à tela inicial.
+
+O aplicativo deve abrir como aplicativo no Android.
+
+====================================================
+OFFLINE
+====================================================
+
+Quando estiver sem internet:
+
+o aplicativo deve abrir.
+
+Permitir:
+
+ver jogos salvos;
+
+ver análises anteriores;
+
+ver resultados armazenados;
+
+conferir jogos contra resultados já armazenados.
+
+Quando a internet voltar:
+
+permitir atualização.
+
+====================================================
+INTERFACE
+====================================================
+
+Manter o visual mobile.
+
+Tema:
+
+escuro.
+
+Cores:
+
+preto;
+
+cinza escuro;
+
+dourado/amarelo;
+
+verde;
+
+vermelho;
+
+azul.
+
+Criar:
+
+cards arredondados;
+
+botões grandes;
+
+números em círculos;
+
+boa leitura;
+
+espaçamento;
+
+animações leves.
+
+Interface:
+
+100% otimizada para celular.
+
+====================================================
+MENU
+====================================================
+
+Manter menu inferior.
+
+Criar:
+
+🏠 INÍCIO
+
+📊 ANÁLISE
+
+🎲 GERAR
+
+💾 MEUS JOGOS
+
+🎯 CONFERIR
+
+Se necessário, colocar:
+
+ESTATÍSTICAS;
+
+HISTÓRICO;
+
+CONFIGURAÇÕES
+
+em um botão adicional:
+
+☰ MAIS.
+
+====================================================
+BOTÕES
+====================================================
+
+VERIFICAR TODOS OS BOTÕES.
+
+NÃO DEIXAR BOTÕES FALSOS.
+
+Todos devem funcionar.
+
+Testar:
+
+ATUALIZAR RESULTADOS;
+
+EXECUTAR 100 ROBÔS;
+
+GERAR JOGOS;
+
+SALVAR;
+
+COPIAR;
+
+GERAR NOVAMENTE;
+
+CONFERIR;
+
+EXCLUIR;
+
+APAGAR TODOS;
+
+EXPORTAR;
+
+IMPORTAR;
+
+LIMPAR CACHE.
+
+====================================================
+SEGURANÇA
+====================================================
+
+Não colocar chaves secretas no frontend.
+
+Se forem necessárias credenciais:
+
+utilizar backend.
+
+Validar todos os dados.
+
+Tratar erros.
+
+====================================================
+TRATAMENTO DE ERROS
+====================================================
+
+Se a fonte oficial não responder:
+
+mostrar:
+
+⚠️ Não foi possível atualizar os dados oficiais.
+
+Se os dados forem inválidos:
+
+rejeitar.
+
+Se houver menos de 15 dezenas:
+
+rejeitar.
+
+Se houver repetição:
+
+rejeitar.
+
+Se houver número fora de 01–25:
+
+rejeitar.
+
+Se a análise falhar:
+
+mostrar erro.
+
+Permitir:
+
+TENTAR NOVAMENTE.
+
+====================================================
+IMPORTANTE SOBRE PROBABILIDADE
+====================================================
+
+O aplicativo pode utilizar:
+
+estatística;
+
+probabilidade;
+
+frequência;
+
+Monte Carlo;
+
+análise de sequência;
+
+padrões;
+
+n-gramas;
+
+coocorrência;
+
+transições;
+
+otimização;
+
+backtest.
+
+MAS:
+
+não afirmar que é possível prever com certeza
+o próximo resultado.
+
+NÃO USAR:
+
+"número garantido"
+
+"jogo certeiro"
+
+"previsão garantida"
+
+"número vencedor"
+
+"garantia de prêmio"
+
+USAR:
+
+"análise estatística experimental"
+
+"ranking estatístico"
+
+"consenso dos modelos"
+
+"simulação"
+
+"padrão histórico"
+
+"probabilidade estatística"
+
+"backtest"
+
+====================================================
+AVISO
+====================================================
+
+Mostrar no aplicativo:
+
+"A Lotofácil é um jogo de sorte.
+As análises deste aplicativo são experimentais,
+estatísticas e baseadas em dados históricos.
+Não existe garantia de acertos ou prêmios."
+
+====================================================
+TESTES
+====================================================
+
+ANTES DE FINALIZAR:
+
+TESTAR:
+
+✓ Aplicativo abre.
+
+✓ Logo da Águia continua funcionando.
+
+✓ Interface mobile funciona.
+
+✓ Menu funciona.
+
+✓ Botões funcionam.
+
+✓ Dados anteriores são carregados.
+
+✓ Atualização funciona.
+
+✓ Dados são validados.
+
+✓ Últimos 100 concursos são processados.
+
+✓ 100 robôs executam.
+
+✓ Progresso funciona.
+
+✓ Consenso funciona.
+
+✓ Ranking funciona.
+
+✓ Jogos são gerados.
+
+✓ Cada jogo possui 15 dezenas.
+
+✓ Não existem dezenas repetidas.
+
+✓ Jogos múltiplos possuem diversidade.
+
+✓ Salvar funciona.
+
+✓ Copiar funciona.
+
+✓ Excluir funciona.
+
+✓ Apagar todos funciona.
+
+✓ Conferir funciona.
+
+✓ Dados persistem.
+
+✓ Offline funciona.
+
+✓ PWA funciona.
+
+✓ Instalação na tela inicial funciona.
+
+CORRIGIR QUALQUER BOTÃO QUE NÃO FUNCIONE.
+
+====================================================
+ENTREGA FINAL
+====================================================
+
+ATUALIZAR O PROJETO EXISTENTE.
+
+NÃO APAGAR A IDENTIDADE VISUAL JÁ EXISTENTE.
+
+MANTER O LOGO DA ÁGUIA.
+
+MANTER O QUE JÁ FUNCIONA.
+
+COMPLETAR O QUE ESTÁ FALTANDO.
+
+CRIAR UM APLICATIVO REAL E FUNCIONAL.
+
+NÃO ENTREGAR APENAS UMA DEMONSTRAÇÃO.
+
+NÃO ENTREGAR APENAS HTML ESTÁTICO.
+
+CRIAR FRONTEND E BACKEND/SERVER FUNCTIONS QUANDO
+NECESSÁRIO.
+
+O RESULTADO FINAL DEVE SER:
+
+🦅 HAKER LOTOFÁCIL
+
+Um aplicativo mobile funcional de análise estatística experimental
+da Lotofácil com:
+
+✓ Logo da Águia
+
+✓ Resultados oficiais
+
+✓ Últimos 100 concursos
+
+✓ Atualização automática
+
+✓ 100 robôs estatísticos independentes
+
+✓ Análise de padrões numéricos inspirada em análise de sequências
+
+✓ Probabilidade estatística
+
+✓ N-gramas numéricos
+
+✓ Coocorrência
+
+✓ Monte Carlo
+
+✓ Otimização
+
+✓ Backtest sem usar dados futuros
+
+✓ Ranking
+
+✓ Consenso
+
+✓ Consenso exato
+
+✓ Geração de jogos
+
+✓ Diversificação
+
+✓ Salvar jogos
+
+✓ Copiar jogos
+
+✓ Conferir jogos
+
+✓ Estatísticas
+
+✓ Histórico
+
+✓ Funcionamento offline
+
+✓ PWA
+
+✓ Instalação no Android
+
+✓ Todos os botões funcionando.
